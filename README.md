@@ -1,6 +1,8 @@
-# SuperbowlFrontend
+# Superbowl Front-End
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+This project is the website part of Superbowl project.
+
+Based on Angular CLI and Material using [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
 
 ## Development server
 

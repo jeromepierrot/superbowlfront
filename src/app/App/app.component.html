@@ -41,7 +41,7 @@
   <mat-toolbar-row>
     <div *ngFor="let link of links" class="nav-button">
       <button mat-button routerLink="{{link.fragment}}" [fragment]="link.fragment">
-        <mat-icon>{{ link.icon }}</mat-icon>
+        <span><mat-icon class="bottom-icons">{{ link.icon }}</mat-icon></span>
       </button>
     </div>
   </mat-toolbar-row>

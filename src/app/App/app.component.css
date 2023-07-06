@@ -2,7 +2,6 @@
   background-color: lightgreen;
 }
 
-
 mat-sidenav-container {
   position: relative;
   height: calc(100vh - 60px);
@@ -45,8 +44,13 @@ mat-toolbar-row {
   justify-content: space-around;
 }
 
+.bottom-icons {
+  font-size: 1.625rem;
+}
+
 button {
   /* background-color: lightgreen; */
+  icon: ;
 }
 
 .content {

@@ -23,9 +23,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/homepage/home/home.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MatchListComponent } from './components/homepage/match-list/match-list.component';
-import { MatchItemComponent } from './components/homepage/match-item/match-item.component';
+import { MatchListComponent } from './components/match-list/match-list.component';
+import { MatchItemComponent } from './components/match-item/match-item.component';
 import { SimpleListComponent } from './components/homepage/simple-list/simple-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { SimpleListComponent } from './components/homepage/simple-list/simple-li
     MatchListComponent,
     MatchItemComponent,
     SimpleListComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

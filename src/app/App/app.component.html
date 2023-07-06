@@ -3,14 +3,14 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" mode="side" class="sidenav">
         <div *ngFor="let link of links" class="nav-button">
-          <button mat-button routerLink="{{link.fragment}}" [fragment]="link.fragment">
+          <button mat-button routerLink="{{link.fragment}}" [fragment]="link.fragment" routerLinkActive="activebutton" [routerLinkActiveOptions]="{ exact: true }">
             <mat-icon>{{ link.icon }}</mat-icon>
             <span mat-line>{{ link.title }}</span>
           </button>
         </div>
         <mat-divider></mat-divider>
         <div>
-          <button mat-button routerLink="'terms'" [fragment]="'terms'" class="nav-button">
+          <button mat-button routerLink="'terms'" [fragment]="'terms'" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
             <mat-icon>info</mat-icon>
             <span>Terms and conditions</span>
           </button>
@@ -19,15 +19,14 @@
   <mat-sidenav-content class="mat-elevation-z4">
     <div class="content">
       <!-- TODO : To remove //FOR TESTING PURPOSE ONLY// -->
-      <p>
+      <!-- <p>
         Resize your browser window to see the current screen size change.
       </p>
       <p>
         The current screen size is <strong>{{currentScreenSize}}</strong>
-      </p>
+      </p> -->
       <!-- TODO : To remove //END: FOR TESTING PURPOSE ONLY// -->
 
-      <!-- <p><button mat-button (click)="sidenav.toggle()">Show Sidenav</button></p> -->
     </div>
     <div>
       <router-outlet></router-outlet>

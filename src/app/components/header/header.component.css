@@ -8,11 +8,24 @@ mat-toolbar {
   top: 0;
   right: 0;
   z-index: 10;
-  background-color: hsl(240, 86%, 20%);
-  color: lightgrey;
+  background-color: #245abc;   /* color-primary-40 */
+  color: #fff; /* color-on-primary-40 */
   font-family: 'roboto', sans-serif;
   font-size: 1.325rem;
   font-weight: bold;
+}
+
+button {
+  :hover {
+    text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
+    text-underline-offset:4px;
+    color: #001945; /* color-on-primary-40 */
+  }
+}
+
+.activebutton {
+  text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
+  text-underline-offset:4px;
 }
 
 

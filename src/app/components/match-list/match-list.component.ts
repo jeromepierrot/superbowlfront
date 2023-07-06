@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Match } from '../../../domain/match';
+import { Match } from '../../domain/match';
 import { ApiMatchService } from 'src/app/services/api-match.service';
 
 @Component({

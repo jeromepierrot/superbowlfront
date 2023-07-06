@@ -1,0 +1,26 @@
+
+<mat-card (click)="onMatcardClicked()">
+  <mat-card-header>
+    match.status
+  </mat-card-header>
+  <mat-card-title-group>
+      <mat-card-subtitle class="title">
+        <div>StartTime</div>
+        <mat-divider></mat-divider>
+        <div>EndTime</div>
+      </mat-card-subtitle>
+      <mat-card-title class="title">     
+        <div>Team A</div>
+        <mat-divider></mat-divider>
+        <div>Team B</div>
+      </mat-card-title>
+  </mat-card-title-group>
+  <mat-card-content>
+      <section>
+        <div class="score a">A</div>
+        <div class="score b">B</div>
+        <div class="score odds">Odds_A / Score_A</div>
+        <div class="score odds">Odds_B / Score_B</div>
+      </section>
+  </mat-card-content>
+</mat-card>

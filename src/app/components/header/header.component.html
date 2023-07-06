@@ -11,8 +11,8 @@
   <!-- Template when screensize is > medium -->
   <ng-template #landscape>
     <button mat-button class="logo" (click)="onViewHome()"><span> {{title}}</span> Icon here</button>
-    <button mat-button class="matches" (click)="onViewMatches()">All matches</button>
-    <button mat-button class="bets"(click)="onViewBets()">Bets</button>
+    <button mat-button class="matches" (click)="onViewMatches()" routerLinkActive="activebutton" [routerLinkActiveOptions]="{ exact: true }">All matches</button>
+    <button mat-button class="bets"(click)="onViewBets()" routerLinkActive="activebutton" [routerLinkActiveOptions]="{ exact: true }">Bets</button>
     <span class="menu-spacer"></span>
     <button mat-button *ngIf="!isLogged" class="signup" (click)="onViewSignup()">
       Sign-up

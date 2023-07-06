@@ -5,28 +5,31 @@
 mat-sidenav-container {
   position: relative;
   height: calc(100vh - 60px);
+  color: #D9E2FF 2px; /* color-on-primary-10 */
 }
 
 mat-sidenav {
-  position: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: flex-start;
-  width: 220px;
+  width: 225px;
   border-right: none;
-  background-color: hsl(240, 86%, 20%);
-  color: lightgray;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #001945; /* color-primary-10 */
 }
 
 mat-sidenav-content {
   height: calc(100vh - 90px);
   margin: 16px;
-  margin-left: 32px;
   padding: 2rem;
+  color: #001945;
 }
 
 mat-divider {
-  background-color: gray;
+  height: 3px;
+  width: 75%;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  justify-self: center;
+  background-color: hsla(226, 92%, 91%, 30%);
 }
 
 mat-toolbar {
@@ -35,7 +38,7 @@ mat-toolbar {
   right: 0;
   z-index: 10;
   
-  background-color: hsl(240, 86%, 20%);
+  background-color: #001945; /* color-primary-10 */
 }
 
 mat-toolbar-row {
@@ -46,11 +49,28 @@ mat-toolbar-row {
 
 .bottom-icons {
   font-size: 1.625rem;
+  :hover {
+    background-color: underline #D9E2FF 2px;
+  }
 }
 
 button {
-  /* background-color: lightgreen; */
-  icon: ;
+  border-radius: 4px;
+  color: #999;
+  font-size: 0.825rem;
+  font-weight: bold;
+  padding: 6px 12px;
+  :hover {
+    text-decoration: underline crimson 3px; /* color-primary-90 */
+    text-underline-offset: 4px;
+    color: #D9E2FF; /* color-primary-90 */
+  }
+}
+
+.activebutton {
+  color: #001945; /* color-on-primary-10 */
+  text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
+  text-underline-offset: 4px;
 }
 
 .content {
@@ -62,8 +82,6 @@ button {
 
 .nav-button {
   font-size: 0.925rem;
-  color: white;
-  text-align: start;
 }
 
 .is-mobile {
@@ -71,8 +89,5 @@ button {
 }
 
 * {
-  color: gray;
-  :hover {
-    color: lightgrey;
-  }
+  color: #D9E2FF; /* color-on-primary-10 */
 }

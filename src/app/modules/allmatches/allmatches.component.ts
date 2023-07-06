@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./allmatches.component.css']
 })
 export class AllmatchesComponent {
+  matchListFiller = Array.from({length: 100}, (_, i) => `Match Item ${i+1}`)
 
 }

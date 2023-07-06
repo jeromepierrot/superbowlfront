@@ -10,9 +10,11 @@ import { Router } from "@angular/router";
 export class HeaderComponent {
   @Input() currentScreenSize!: string;
   @Input() sidenav!: MatSidenav;
+  @Input() isLogged!: boolean;
 
   title = 'Superbowl';
   isLandscape: boolean = true;
+  
 
   constructor(private router: Router) {
     this.responsiveDisplay(this.currentScreenSize);
@@ -40,6 +42,11 @@ export class HeaderComponent {
 
   onViewLogin(): void {
     this.router.navigateByUrl("login");
+  }
+
+  onViewLogout(): void {
+    // TODO : logout route to complete
+    this.router.navigateByUrl("logout");
   }
 
   responsiveDisplay(currentScreenSize: string): void {

@@ -4,6 +4,7 @@
 
 
 mat-sidenav-container {
+  position: relative;
   height: calc(100vh - 60px);
 }
 
@@ -27,6 +28,25 @@ mat-sidenav-content {
 
 mat-divider {
   background-color: gray;
+}
+
+mat-toolbar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  
+  background-color: hsl(240, 86%, 20%);
+}
+
+mat-toolbar-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+button {
+  /* background-color: lightgreen; */
 }
 
 .content {

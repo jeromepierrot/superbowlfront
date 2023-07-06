@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -10,9 +10,10 @@ import { MatSidenav } from '@angular/material/sidenav';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   destroyed = new Subject<void>();
   currentScreenSize!: string;
+  isLogged: boolean = false;
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
@@ -25,15 +26,7 @@ export class AppComponent implements OnDestroy {
     [Breakpoints.XLarge, 'XLarge'],
   ]);
 
-  isOpened: boolean = true;
-  isNavbarCollapsed = false;
-  links = [
-    { title:'Home', fragment: '' , icon: 'home'},
-    { title:'All matches', fragment: 'allmatches' , icon: 'sports_football'},
-    { title:'Bets', fragment: 'bets' , icon: 'local_atm'},
-    { title:'Profile', fragment: 'users' , icon: 'settings'},
-    { title:'Logout', fragment: 'logout' , icon: 'power_settings_new'},
-  ];
+  links!: any; // Array of link and icons for the sidenav menu
 
   mobileQuery!: MediaQueryList;
 
@@ -41,7 +34,30 @@ export class AppComponent implements OnDestroy {
       private breakpointObserver: BreakpointObserver,
       private router: Router
     ) {
-      breakpointObserver
+      
+    }
+
+  ngOnInit(): void {
+    if(this.isLogged) {
+      this.links = [
+        { title:'Home', fragment: '' , icon: 'home'},
+        { title:'All matches', fragment: 'allmatches' , icon: 'sports_football'},
+        { title:'Bets', fragment: 'bets' , icon: 'local_atm'},
+        { title:'Profile', fragment: 'users' , icon: 'account_circle'},
+        { title:'Logout', fragment: 'logout' , icon: 'power_settings_new'},
+      ];
+    } else {
+      this.links = [
+        { title:'Home', fragment: '' , icon: 'home'},
+        { title:'All matches', fragment: 'allmatches' , icon: 'sports_football'},
+        { title:'Bets', fragment: 'bets' , icon: 'local_atm'},
+        { title:'Log-in/Sign-up', fragment: 'users' , icon: 'perm_identity'},
+      ];
+    }
+  }
+
+  ngAfterViewInit(): void {
+    this.breakpointObserver
       .observe([
         Breakpoints.XSmall,
         Breakpoints.Small,
@@ -57,7 +73,7 @@ export class AppComponent implements OnDestroy {
           this.responsiveDisplay(this.currentScreenSize);
         }
       });
-    }
+  }
 
   ngOnDestroy(): void {
     this.destroyed.next();

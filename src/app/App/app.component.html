@@ -1,7 +1,7 @@
-<sb-header [sidenav]="sidenav"></sb-header>
+<sb-header [sidenav]="sidenav" [isLogged]="isLogged"></sb-header>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav="matSidenav" mode="side" opened class="sidenav">
+  <mat-sidenav #sidenav="matSidenav" mode="side" class="sidenav">
         <div *ngFor="let link of links" class="nav-button">
           <button mat-button routerLink="{{link.fragment}}" [fragment]="link.fragment">
             <mat-icon>{{ link.icon }}</mat-icon>
@@ -10,7 +10,7 @@
         </div>
         <mat-divider></mat-divider>
         <div>
-          <button mat-button routerLink="'tac'" [fragment]="'tac'" class="nav-button">
+          <button mat-button routerLink="'terms'" [fragment]="'terms'" class="nav-button">
             <mat-icon>info</mat-icon>
             <span>Terms and conditions</span>
           </button>
@@ -32,8 +32,17 @@
     <div>
       <router-outlet></router-outlet>
     </div>
+    <sb-footer></sb-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-
-<sb-footer></sb-footer>
+<!-- Bottom navbar appears when screensize is < medium -->
+<mat-toolbar *ngIf="sidenav.mode === 'over'">
+  <mat-toolbar-row>
+    <div *ngFor="let link of links" class="nav-button">
+      <button mat-button routerLink="{{link.fragment}}" [fragment]="link.fragment">
+        <mat-icon>{{ link.icon }}</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

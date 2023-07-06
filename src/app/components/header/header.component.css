@@ -4,6 +4,10 @@
 
 mat-toolbar {
   height: auto;
+  position: relative;
+  top: 0;
+  right: 0;
+  z-index: 10;
   background-color: hsl(240, 86%, 20%);
   color: lightgrey;
   font-family: 'roboto', sans-serif;

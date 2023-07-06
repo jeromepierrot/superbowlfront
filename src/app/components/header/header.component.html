@@ -14,11 +14,14 @@
     <button mat-button class="matches" (click)="onViewMatches()">All matches</button>
     <button mat-button class="bets"(click)="onViewBets()">Bets</button>
     <span class="menu-spacer"></span>
-    <button mat-button class="signup" (click)="onViewSignup()">
-      Sign-up <mat-icon>perm_identity</mat-icon>
+    <button mat-button *ngIf="!isLogged" class="signup" (click)="onViewSignup()">
+      Sign-up
     </button>
-    <button mat-button class="login" (click)="onViewLogin()">
-      Log-in <mat-icon>account_circle</mat-icon>
+    <button mat-button *ngIf="!isLogged" class="login" (click)="onViewLogin()">
+      Log-in
+    </button>
+    <button mat-icon-button *ngIf="isLogged" (click)="onViewLogout()">
+      <mat-icon *ngIf="isLogged">power_settings_new</mat-icon>
     </button>
   </ng-template>
 
@@ -27,10 +30,13 @@
     <span class="menu-spacer"></span>
     <button mat-button class="logo" (click)="onViewHome()"><span> {{title}}</span> Icon here</button>
     <span class="menu-spacer"></span>
-    <button mat-button class="signup" (click)="onViewSignup()">
+    <button mat-button *ngIf="!isLogged" class="signup" (click)="onViewSignup()">
       Sign-up
     </button>
-    <button mat-icon-button (click)="onViewLogin()">
-      <span><mat-icon>account_circle</mat-icon></span>
+    <button mat-icon-button *ngIf="!isLogged" (click)="onViewLogin()">
+      <mat-icon *ngIf="!isLogged">account_circle</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="isLogged" (click)="onViewLogout()">
+      <mat-icon *ngIf="isLogged">power_settings_new</mat-icon>
     </button>
   </ng-template>

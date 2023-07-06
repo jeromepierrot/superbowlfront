@@ -1,0 +1,17 @@
+.test {
+  background-color: lightblue;
+}
+
+mat-toolbar {
+  height: auto;
+  background-color: hsl(240, 86%, 20%);
+  color: lightgrey;
+  font-family: 'roboto', sans-serif;
+  font-size: 1.325rem;
+  font-weight: bold;
+}
+
+
+.menu-spacer {
+  flex: 1 2 auto;
+}

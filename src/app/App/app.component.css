@@ -1,0 +1,54 @@
+.test {
+  background-color: lightgreen;
+}
+
+
+mat-sidenav-container {
+  height: calc(100vh - 60px);
+}
+
+mat-sidenav {
+  position: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: flex-start;
+  width: 220px;
+  border-right: none;
+  background-color: hsl(240, 86%, 20%);
+  color: lightgray;
+}
+
+mat-sidenav-content {
+  height: calc(100vh - 90px);
+  margin: 16px;
+  margin-left: 32px;
+  padding: 2rem;
+}
+
+mat-divider {
+  background-color: gray;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.nav-button {
+  font-size: 0.925rem;
+  color: white;
+  text-align: start;
+}
+
+.is-mobile {
+  flex: 1 0 auto;
+}
+
+* {
+  color: gray;
+  :hover {
+    color: lightgrey;
+  }
+}

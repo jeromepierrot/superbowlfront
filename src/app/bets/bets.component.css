@@ -1,0 +1,22 @@
+/* .test {
+  background-color: lightcyan;
+} */
+
+mat-drawer-container {
+  height: 70vh;
+ }
+
+mat-drawer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+mat-drawer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}

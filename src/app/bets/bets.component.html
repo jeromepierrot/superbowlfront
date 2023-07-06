@@ -1,0 +1,23 @@
+
+<mat-drawer-container>
+  <mat-drawer mode="side" [(opened)]="isOpened" position="end">
+    <h2>Betslip</h2>
+    <ng-container *ngFor="let betItem of betList">
+      <ng-container *ngIf="betItem.status == 'BET_OPENED'">
+        <ul class="test">
+          <li>id: {{ betItem.id }}</li>
+          <li>Team A : {{ betItem.match_id }}</li>
+          <li>Team B : {{ betItem.team_id }}</li>
+          <li>Odds : {{ betItem.final_odds }}</li>
+          <li>Wager : {{ betItem.wager_euros }}</li>
+        </ul>
+      </ng-container>
+    </ng-container>
+  </mat-drawer>
+  <mat-drawer-content class="test">
+    <p>bets works!</p>
+    <p>bets works!</p>
+    <p>bets works!</p>
+    <p>bets works!</p>
+  </mat-drawer-content>
+</mat-drawer-container>

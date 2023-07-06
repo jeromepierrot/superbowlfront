@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Bet } from '../domain/bet';
+import { Bet } from '../../domain/bet';
 
 @Component({
   selector: 'sb-bets',

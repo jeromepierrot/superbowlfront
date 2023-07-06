@@ -19,13 +19,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 // Custom modules
 
 // Custom components
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './homepage/home/home.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { MatchListComponent } from './homepage/match-list/match-list.component';
-import { MatchItemComponent } from './homepage/match-item/match-item.component';
-import { SimpleListComponent } from './homepage/simple-list/simple-list.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/homepage/home/home.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MatchListComponent } from './components/homepage/match-list/match-list.component';
+import { MatchItemComponent } from './components/homepage/match-item/match-item.component';
+import { SimpleListComponent } from './components/homepage/simple-list/simple-list.component';
 
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
-import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { Router } from "@angular/router";
 import { MatSidenav } from '@angular/material/sidenav'; 
 
@@ -96,5 +96,4 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       break;
     }
   }
-  
 }

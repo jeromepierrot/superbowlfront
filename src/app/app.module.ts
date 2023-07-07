@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './App/app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Material Design modules
@@ -16,6 +16,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card'; 
+import { MatGridListModule } from '@angular/material/grid-list';
 
 // Custom modules
 
@@ -23,7 +24,6 @@ import {MatCardModule} from '@angular/material/card';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MatchListComponent } from './components/match-list/match-list.component';
 import { MatchItemComponent } from './components/match-item/match-item.component';
 import { SimpleListComponent } from './components/simple-list/simple-list.component';
@@ -36,7 +36,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     FooterComponent,
     HomeComponent,
     HeaderComponent,
-    SidebarComponent,
     MatchListComponent,
     MatchItemComponent,
     SimpleListComponent,
@@ -46,7 +45,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule,
+    // NgbModule,
     BrowserAnimationsModule,
     FormsModule,
 
@@ -58,6 +57,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatListModule,
     MatCheckboxModule,
     MatCardModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

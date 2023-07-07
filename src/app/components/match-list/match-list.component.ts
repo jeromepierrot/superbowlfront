@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Match } from '../../domain/match';
 import { ApiMatchService } from 'src/app/services/api-match.service';
+import { matchlist } from '../../config/match-list.mock';
 
 @Component({
   selector: 'sb-match-list',
@@ -9,13 +11,19 @@ import { ApiMatchService } from 'src/app/services/api-match.service';
   styleUrls: ['./match-list.component.css']
 })
 export class MatchListComponent implements OnInit {
-  matches$!: Observable<Match[]>;
+  @Input() screenSize!: string; 
+  public matches$!: Observable<Match[]>;
+  public matches: Array<any> = [];
 
-  constructor(private apiMatchService: ApiMatchService) {
+  constructor(private apiMatchService: ApiMatchService, private router: Router) {
 
   }
 
   ngOnInit(): void {
-    
+    this.matches = matchlist;
+  }
+
+  onMatcardClicked() {
+    this.router.navigateByUrl("allmatches");
   }
 }

@@ -1,6 +1,5 @@
-<p>match-list works!</p>
-<sb-match-item></sb-match-item>
-<sb-match-item></sb-match-item>
-<sb-match-item></sb-match-item>
-<sb-match-item></sb-match-item>
-<sb-match-item></sb-match-item>
+<h2>{{ matches[0].startDate | date:'longDate' }}</h2>
+<mat-list-item *ngFor="let match of matches ; last as last">
+  <sb-match-item [match]="match" (click)="onMatcardClicked()" [screenSize]="screenSize"></sb-match-item>
+  <mat-divider [inset]="true" *ngIf="!last" role="separator"></mat-divider> 
+</mat-list-item>

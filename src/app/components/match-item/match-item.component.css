@@ -1,46 +1,54 @@
 mat-card {
+  border-radius: 6px;
+  color: #D9E2FF; /* color-on-primary-10 */
+  background-color: #245abc;   /*color-primary-40*/
   :hover{
     cursor: pointer;
   }
 }
 
-mat-card-title-group {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 20px;
-
+mat-card-header {
+  margin-bottom: 6px;
 }
 
-.title {
-  flex: 1 1 auto;
-  background-color: lightgreen;
+mat-grid-list {
+  margin: 6px;
 }
 
-section {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px 20px;
+
+mat-grid-tile.scores {
+  border: 1px solid #001945;
+  border-radius: 6px;
+  background-color: #B0C6FF; /*color-primary-80*/
+  color: #001945; /*color-on-primary-80*/
+
+  box-shadow: inset 0px 0px 3px 3px rgba(0, 0, 0, 0.2);
+  
 }
 
-.score {
-  text-align: center;
-  text-justify: center;
+.hour {
+  font-weight: normal;
+  font-size: small;
 }
 
-.a, .b {
-  height: 30px;
-  min-width: 40%;
-  flex: 1 1 auto;
-  background-color: antiquewhite;
+.name {
+  font-weight: normal;
+  font-size: medium;
 }
 
-.odds {
-  height: 30px;
-  min-width: 40%;
-  flex: 1 1 auto;
-  /* background-color: lightgreen; */
+.value {
+  font-weight: 900;
+  font-size: 1.8em;
 }
+
+mat-grid-tile.teams {
+  margin-right: 10px;
+  background-color: #001945; /*color-primary-10*/
+}
+
+/* mat-grid-tile {
+  /* background-color: darkolivegreen; */
+
+  /* background-color: #001945; color-primary-10 */
+  
+/* } */

@@ -29,7 +29,6 @@ import { MatchItemComponent } from './components/match-item/match-item.component
 import { SimpleListComponent } from './components/simple-list/simple-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

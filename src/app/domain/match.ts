@@ -1,6 +1,6 @@
 export class Match {
-  private id!: number;
-  private teamA!: {
+  public id!: number;
+  public teamA!: {
     id: number,
     name: string,
     country: {
@@ -10,7 +10,7 @@ export class Match {
     createdDate: Date;
     modifiedDate: Date
   }
-  teamB!: {
+  public teamB!: {
     id: number,
     name: string,
     country: {
@@ -20,75 +20,128 @@ export class Match {
     createdDate: Date,
     modifiedDate: Date,
   }
-  oddsA!: number;
-  oddsB!: number;
-  scoreA!: number;
-  scoreB!: number;
-  weather!: string;
-  status!: string;
-  isEnabled!: boolean;
-  startDate!: Date;
-  endDate!: Date;
-  createdDate!: Date;
-  modifiedDate!: Date;
-  cancelled!: boolean;
-  notStarted!: boolean;
-  scheduled!: boolean;
-  started!: boolean;
-  over!: boolean;
+  public oddsA!: number;
+  public oddsB!: number;
+  public scoreA!: number;
+  public scoreB!: number;
+  public weather!: string;
+  public status!: string;
+  public isEnabled!: boolean;
+  public startDate!: Date;
+  public endDate!: Date;
+  public createdDate!: Date;
+  public modifiedDate!: Date;
+  public cancelled!: boolean;
+  public notStarted!: boolean;
+  public scheduled!: boolean;
+  public started!: boolean;
+  public over!: boolean;
 
-  constructor() {
 
+  constructor(data: any) {
+    this.id = data.id;
+    this.teamA.id = data.teamA.id;
+    this.teamA.name = data.teamA.name;
+    this.teamA.country.id = data.teamA.country.id;
+    this.teamA.country.name = data.teamA.country.name;
+    this.teamB.name = data.teamA.createdDate;
+    this.teamB.name = data.teamA.modifiedDate;
+    this.teamB.id = data.teamB.id;
+    this.teamB.name = data.teamB.name;
+    this.teamB.country.id = data.teamB.country.id;
+    this.teamB.country.name = data.teamB.country.name;
+    this.teamB.name = data.teamB.createdDate;
+    this.teamB.name = data.teamB.modifiedDate;
+    this.oddsA = data.oddsA;
+    this.oddsB = data.oddsB;
+    this.scoreA = data.scoreA;
+    this.scoreB = data.scoreB;
+    this.weather = data.weather;
+    this.status = data.status;
+    this.isEnabled = data.isEnabled;
+    this.startDate = data.startDate;
+    this.endDate = data.endDate;
+    this.createdDate = data.createdDate;
+    this.modifiedDate = data.modifiedDate;
+    this.cancelled = data.cancelled;
+    this.notStarted = data.notStarted;
+    this.scheduled = data.scheduled;
+    this.started = data.started;
+    this.over = data.over;
+  }
+
+  deserialize(data: any) {
+    this.id = data.id;
+    this.teamA.id = data.teamA.id;
+    this.teamA.name = data.teamA.name;
+    this.teamA.country.id = data.teamA.country.id;
+    this.teamA.country.name = data.teamA.country.name;
+    this.teamA.createdDate = data.teamA.createdDate;
+    this.teamA.modifiedDate = data.teamA.modifiedDate;
+    this.teamB.id = data.teamB.id;
+    this.teamB.name = data.teamB.name;
+    this.teamB.country.id = data.teamB.country.id;
+    this.teamB.country.name = data.teamB.country.name;
+    this.teamB.createdDate = data.teamB.createdDate;
+    this.teamB.modifiedDate = data.teamB.modifiedDate;
+    this.oddsA = data.oddsA;
+    this.oddsB = data.oddsB;
+    this.scoreA = data.scoreA;
+    this.scoreB = data.scoreB;
+    this.weather = data.weather;
+    this.status = data.status;
+    this.isEnabled = data.isEnabled;
+    this.startDate = data.startDate;
+    this.endDate = data.endDate;
+    this.createdDate = data.createdDate;
+    this.modifiedDate = data.modifiedDate;
+    this.cancelled = data.cancelled;
+    this.notStarted = data.notStarted;
+    this.scheduled = data.scheduled;
+    this.started = data.started;
+    this.over = data.over;
+  }
+
+
+  serialize(): any {
+    return {
+      id: this.id,
+      teamA: {
+        id: this.teamA.id,
+        name: this.teamA.name,
+        country: {
+            id: this.teamA.country.id,
+            name: this.teamA.country.name
+        },
+        createdDate: this.teamA.createdDate,
+        modifiedDate: this.teamA.modifiedDate
+      },
+      teamB: {
+        id: this.teamB.id,
+        name: this.teamB.name,
+        country: {
+          id: this.teamB.country.id,
+          name: this.teamB.country.name
+        },
+        createdDate: this.teamB.createdDate,
+        modifiedDate: this.teamB.modifiedDate
+      },
+      oddsA: this.oddsA,
+      oddsB: this.oddsB,
+      scoreA: this.scoreA,
+      scoreB: this.scoreB,
+      weather: this.weather,
+      status: this.status,
+      isEnabled: this.isEnabled,
+      startDate: this.startDate,
+      endDate: this.endDate,
+      createdDate: this.createdDate,
+      modifiedDate: this.modifiedDate,
+      cancelled: this.cancelled,
+      notStarted: this.notStarted,
+      scheduled: this.scheduled,
+      started: this.started,
+      over: this.over
+    }
   }
 }
-//   constructor(data: any) {
-//     this.id = data.id;
-//     this.id_team_a = data.teamA.id;
-//     this.name_team_a = data.teamA.name;
-//     this.id_team_b = data.teamB.id;
-//     this.name_team_b = data.teamB.name;
-//     this.odds_a = data.oddsA;
-//     this.odds_b = data.oddsB;
-//     this.score_a = data.scoreA;
-//     this.score_b = data.scoreB;
-//     this.status = data.status;
-//     this.weather = data.weather;
-//     this.start_date = data.startDate;
-//     this.end_date = data.endDate;
-//    }
-
-//    serialize() {
-//     return {
-//       id : this.id,
-//       id_team_a : this.id_team_a,
-//       name_team_a : this.name_team_a,
-//       id_team_b : this.id_team_b,
-//       name_team_b : this.name_team_b,
-//       odds_a : this.odds_a,
-//       odds_b : this.odds_b,
-//       score_a : this.score_a,
-//       score_b : this.score_b,
-//       status : this.status,
-//       weather : this.weather,
-//       start_date : this.start_date,
-//       end_date : this.end_date
-//     }
-//   }
-
-//    deserialize(data: any) {
-//     this.id = data.id;
-//     this.id_team_a = data.teamA.id;
-//     this.name_team_a = data.teamA.name;
-//     this.id_team_b = data.teamB.id;
-//     this.name_team_b = data.teamB.name;
-//     this.odds_a = data.oddsA;
-//     this.odds_b = data.oddsB;
-//     this.score_a = data.scoreA;
-//     this.score_b = data.scoreB;
-//     this.status = data.status;
-//     this.weather = data.weather;
-//     this.start_date = data.startDate;
-//     this.end_date = data.endDate;
-//    }
-// }
-

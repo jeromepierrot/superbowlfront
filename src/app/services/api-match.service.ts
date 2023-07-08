@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment'
 })
 export class ApiMatchService {
 
-  matchesUrl: string = environment.apiUrl + "/mathes";
+  matchesUrl: string = environment.apiUrl + "matches";
 
   constructor(private http: HttpClient) { }
 

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { match } from '../../config/match.mock';
 
 @Component({
   selector: 'sb-match-item',
@@ -14,11 +15,10 @@ export class MatchItemComponent implements OnInit, AfterViewInit, OnDestroy {
   public breakpoint!: number;
   public currentScreenSize!: string;
   private destroyed = new Subject<void>();
-  @Input() matchItem!: Match;
-  @Input() match: any;
-  @Input() screenSize!: any;
- // public match!: any;
+  @Input() matchItem!: Match | null; 
   public amonstList: boolean= true;
+
+  public matchItemMock!: any; // mock
 
   displayNameMap = new Map([
     [Breakpoints.XSmall, 'XSmall'],

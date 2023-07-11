@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { MatListModule } from '@angular/material/list';
+
 import { AllmatchesRoutingModule } from './allmatches-routing.module';
 import { AllmatchesComponent } from './allmatches.component';
 
@@ -11,6 +13,7 @@ import { AllmatchesComponent } from './allmatches.component';
   imports: [
     CommonModule,
     AllmatchesRoutingModule,
+    MatListModule,
   ]
 })
 export class AllmatchesModule { }

@@ -1,2 +1,11 @@
-<h2>All matches</h2>
-<p *ngFor="let matchItem of matchListFiller">{{ matchItem }}</p>
+<section>
+  <mat-action-list>
+    <div mat-subheader class="item-title">All matches</div>
+    <button mat-list-item class="list-item" *ngFor="let matchItem of matchListFiller">
+      <div matListItemTitle>{{ matchItem.status }}</div>
+      <div matListItemLine>{{ matchItem.startDate | date}}</div>
+      <div matListItemLine>{{ matchItem.teamA.name | uppercase }} VS {{ matchItem.teamB.name | uppercase }}</div>
+      <mat-divider></mat-divider>
+    </button>
+  </mat-action-list>
+</section>

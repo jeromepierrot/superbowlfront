@@ -1,16 +1,22 @@
-/* .test {
-  background-color: lightcyan;
-} */
+.test {
+  /* background-color: lightcyan; */
+}
 
 mat-drawer-container {
   height: 70vh;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
  }
 
 mat-drawer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: center;
+  justify-content: space-between;
+  align-content: space-between;
+  width: auto;
+  padding: 20px;
+  background-color: transparent;
 }
 
 mat-drawer-content {
@@ -19,4 +25,5 @@ mat-drawer-content {
   justify-content: space-evenly;
   align-items: center;
   align-content: center;
+  margin: 10px;
 }

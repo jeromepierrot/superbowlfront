@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 // Material Design modules
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 import { BetsRoutingModule } from './bets-routing.module';
 import { BetsComponent } from './bets.component';
@@ -21,7 +22,8 @@ import { BetsComponent } from './bets.component';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-
+    MatListModule,
+    
     // custom modules
     BetsRoutingModule,
   ]

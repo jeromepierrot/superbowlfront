@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Bet } from '../../domain/bet';
+import { Bet } from '../../models/bet';
+import { MatList, MatListItem } from '@angular/material/list';
+import { matchlist } from 'src/app/config/match-list.mock';
 
 @Component({
   selector: 'sb-bets',
@@ -9,6 +11,7 @@ import { Bet } from '../../domain/bet';
 export class BetsComponent implements OnInit {
   isOpened: boolean = true;
   isEmpty: boolean = false;
+  matchListFiller = matchlist;
   betList: Bet[] = [
     {
       id:1,

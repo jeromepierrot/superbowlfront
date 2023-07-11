@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { Match } from '../../domain/match';
+import { Match } from '../../models/match';
 import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Subject } from 'rxjs';

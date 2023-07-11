@@ -1,5 +1,5 @@
-<sb-header [sidenav]="sidenav" [isLogged]="isLogged"></sb-header>
 
+<sb-header [sidenav]="sidenav" [isLogged]="isLogged"></sb-header>
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" mode="side" class="sidenav">
         <div *ngFor="let link of links" class="nav-button">
@@ -9,7 +9,7 @@
           </button>
         </div>
         <mat-divider></mat-divider>
-        <div>
+        <div class="tac-button">
           <button mat-button routerLink="'terms'" [fragment]="'terms'" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
             <mat-icon>info</mat-icon>
             <span>Terms and conditions</span>

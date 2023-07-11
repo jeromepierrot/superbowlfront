@@ -1,15 +1,15 @@
-mat-card {
-  /* background-color: #245abc;   color-primary-40 */
-}
+/* mat-card {
+  background-color: #245abc;   color-primary-40
+}*/
 
-mat-card-content {
+/* mat-card-content {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: space-around;
   gap: 32px;
-}
+}  */
 
 sb-match-item {
   margin: 6px;

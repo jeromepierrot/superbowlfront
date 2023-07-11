@@ -8,25 +8,55 @@ mat-toolbar {
   top: 0;
   right: 0;
   z-index: 10;
-  background-color: #245abc;   /* color-primary-40 */
+  background-color: #0051ab;   /* color-primary-40 */
   color: #fff; /* color-on-primary-40 */
   font-family: 'roboto', sans-serif;
-  font-size: 1.325rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 button {
-  :hover {
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 20px;
+  padding-inline: 40px;
+  &:hover {
     text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
-    text-underline-offset:4px;
-    color: #001945; /* color-on-primary-40 */
+    text-underline-offset: 8px;
+    color: #D9E2FF; /* color-on-primary-40 */
+    background-color: #05285a;
+  }
+  &:active {
+    text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
+    text-underline-offset: 8px;
   }
 }
 
-.activebutton {
-  text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
-  text-underline-offset:4px;
+.login, .signup {
+  text-transform: capitalize;
+  font-weight: 300;
+  padding: 20px;
+  padding-inline: 40px;
+  background-color: #0070eb;
+  &:hover {
+    font-weight: 400;
+    text-decoration: none;
+    background-color: #004792;
+  }
 }
+
+.signup {
+  background-color: #128000;
+  &:hover {    
+    text-decoration: none;
+    background-color: #0d6200;
+  }
+}
+
+/* .activebutton {
+  text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
+/*  text-underline-offset:8px;
+} */
 
 
 .menu-spacer {

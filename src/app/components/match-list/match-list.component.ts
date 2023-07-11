@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiMatchService } from 'src/app/services/api-match.service';
-import { Match } from '../../domain/match';
+import { Match } from '../../models/match';
 
 @Component({
   selector: 'sb-match-list',

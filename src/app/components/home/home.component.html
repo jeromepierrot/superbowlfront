@@ -5,8 +5,7 @@
 </section>
 <section>
   <h2>Matches of the day</h2>
-  <!-- <sb-match-item *ngIf="matchItem$ != null; else noMatchFound" [matchItem]="matchItem$ | async"></sb-match-item> -->
-  <sb-match-list *ngIf="allMatches$ != null; else noMatchFound" [matches]="allMatches$ | async"></sb-match-list>
+  <sb-match-list></sb-match-list>
 </section>
 <ng-template #noMatchFound>
   <p>Sorry. No match found for today</p>

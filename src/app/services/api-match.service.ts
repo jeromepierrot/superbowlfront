@@ -17,6 +17,15 @@ export class ApiMatchService {
     return this.http.get<Match[]>(this.matchesUrl);
   }
 
+  getMatchesByDate(date: string): Observable<Match[]> {
+    return this.http.get<Match[]>(this.matchesUrl + "/?date=" + date);
+  }
+
+  getMatchesForToday(): Observable<Match[]> {
+    return this.http.get<Match[]>(this.matchesUrl + "/today");
+ 
+  }
+
   getMatchById(id: number) : Observable<Match> {
     return this.http.get<Match>(this.matchesUrl + "/" + id);
   }

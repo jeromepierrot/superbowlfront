@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { ApiMatchService } from 'src/app/services/api-match.service';
 import { Match } from '../../domain/match';
-import { matchlist } from '../../config/match-list.mock';
 
 @Component({
   selector: 'sb-match-list',
@@ -10,12 +10,16 @@ import { matchlist } from '../../config/match-list.mock';
   styleUrls: ['./match-list.component.css']
 })
 export class MatchListComponent implements OnInit {
-  @Input() matches!: Match[] | null;
-  constructor(private router: Router) {
+  matches$!: Observable<Match[]>;
 
+  constructor(private router: Router, private matchService: ApiMatchService) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.matches$ = this.matchService.getMatchesByDate('2023-06-28');
+   this.matches$ = this.matchService.getMatchesForToday(); // matches of the day
+   // this.matches$ = this.matchService.getMatches(); // all matches
+  }
 
   onMatcardClicked() {
     this.router.navigateByUrl("allmatches");

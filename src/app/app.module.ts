@@ -29,7 +29,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MatchListComponent } from './components/match-list/match-list.component';
 import { MatchItemComponent } from './components/match-item/match-item.component';
 import { SimpleListComponent } from './components/simple-list/simple-list.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [

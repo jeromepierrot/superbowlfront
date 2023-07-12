@@ -30,7 +30,7 @@
     <span class="menu-spacer"></span>
     <button mat-button class="logo" (click)="onViewHome()"><span> {{title}}</span> Icon here</button>
     <span class="menu-spacer"></span>
-    <button mat-button *ngIf="!isLogged" class="signup" (click)="onViewSignup()">
+    <button mat-button *ngIf="!isLogged && !isPhone" class="signup" (click)="onViewSignup()">
       Sign-up
     </button>
     <button mat-icon-button *ngIf="!isLogged" (click)="onViewLogin()">

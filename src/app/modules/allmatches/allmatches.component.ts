@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatList, MatListItem, MatListItemTitle } from '@angular/material/list';
 import { matchlist } from 'src/app/config/match-list.mock';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'sb-allmatches',
@@ -8,10 +9,11 @@ import { matchlist } from 'src/app/config/match-list.mock';
   styleUrls: ['./allmatches.component.css']
 })
 export class AllmatchesComponent implements OnInit {
+  @Input() isLogged = false;
  // matchListFiller = Array.from({length: 100}, (_, i) => `Match Item ${i+1}`);
   matchListFiller = matchlist;
 
-  constructor() {
+  constructor(private router: Router) {
 
   }
 

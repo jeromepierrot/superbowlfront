@@ -1,11 +1,17 @@
-<section>
-  <mat-action-list>
-    <div mat-subheader class="item-title">All matches</div>
-    <button mat-list-item class="list-item" *ngFor="let matchItem of matchListFiller">
-      <div matListItemTitle>{{ matchItem.status }}</div>
-      <div matListItemLine>{{ matchItem.startDate | date}}</div>
-      <div matListItemLine>{{ matchItem.teamA.name | uppercase }} VS {{ matchItem.teamB.name | uppercase }}</div>
-      <mat-divider></mat-divider>
-    </button>
-  </mat-action-list>
-</section>
+<div class="wrapper">
+  <section class="left-top">
+    <mat-action-list>
+      <div mat-subheader class="item-title">All matches</div>
+      <button mat-list-item class="list-item" *ngFor="let matchItem of matchListFiller">
+        <div matListItemTitle>{{ matchItem.status }}</div>
+        <div matListItemLine>{{ matchItem.startDate | date }}</div>
+        <div matListItemLine>{{ matchItem.teamA.name | uppercase }}</div>
+        <mat-divider [inset]="true"></mat-divider>
+        <div matListItemLine>{{ matchItem.teamB.name | uppercase }}</div>
+      </button>
+    </mat-action-list>
+  </section>
+  <aside class="right-bottom">
+    <!-- place on the right for betslip and/or floating buttons -->
+  </aside>
+</div>

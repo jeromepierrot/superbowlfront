@@ -1,3 +1,21 @@
+section {
+  height: 100vh;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+div.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
 p, h2, h3 {
   color: #555;
+  background-color: lightgreen;
+}
+
+p {
+  padding-top: 10px;
 }

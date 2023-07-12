@@ -1,5 +1,6 @@
 
 <sb-header [sidenav]="sidenav" [isLogged]="isLogged"></sb-header>
+
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" mode="side" class="sidenav">
         <div *ngFor="let link of links" class="nav-button">
@@ -18,10 +19,15 @@
   </mat-sidenav>
   <mat-sidenav-content class="mat-elevation-z4">
       <router-outlet></router-outlet>
+      <div [ngClass]="{'fab-container bottom' : fabPosition === 'bottom',
+                       'fab-container aside-bottom' : fabPosition === 'aside-bottom',
+                       'fab-container aside' : fabPosition === 'aside' }" >
+        <sb-cta-fab class="fab" *ngIf="!isLogged" text="Join or Log in"></sb-cta-fab>
+        <sb-cta-fab class="fab" text="Place a bet now"></sb-cta-fab>
+      </div>
     <sb-footer></sb-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
 <!-- Bottom navbar appears when screensize is < medium -->
 <mat-toolbar *ngIf="sidenav.mode === 'over'">
   <mat-toolbar-row>

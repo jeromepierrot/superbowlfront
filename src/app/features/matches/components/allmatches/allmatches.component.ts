@@ -4,8 +4,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatList, MatListItem, MatListItemTitle } from '@angular/material/list';
 import { matchlist } from 'src/app/config/match-list.mock';
 import { Router } from "@angular/router";
-import { ApiMatchService } from 'src/app/services/api-match.service';
-import { Match } from 'src/app/models/match';
+import { ApiMatchService } from 'src/app/core/services/api-match.service';
+import { Match } from 'src/app/core/models/match';
 
 @Component({
   selector: 'sb-allmatches',

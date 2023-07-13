@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Bet } from '../../models/bet';
+import { Bet } from 'src/app/core/models/bet';
 import { MatList, MatListItem } from '@angular/material/list';
 import { matchlist } from 'src/app/config/match-list.mock';
 

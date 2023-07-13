@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from "@angular/router";
 import { MatSidenav } from '@angular/material/sidenav'; 
-import { FabPosition } from '../components/cta-fab/cta-fab.component';
+import { FabPosition } from './core/components/cta-fab/cta-fab.component';
 
 @Component({
   selector: 'sb-root',

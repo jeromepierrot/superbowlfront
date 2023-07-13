@@ -6,10 +6,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { BetsRoutingModule } from './bets-routing.module';
-import { BetsComponent } from './bets.component';
-
+import { BetsComponent } from './components/bets/bets.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +23,13 @@ import { BetsComponent } from './bets.component';
     MatIconModule,
     MatSidenavModule,
     MatListModule,
+    MatDividerModule,
     
     // custom modules
     BetsRoutingModule,
+  ],
+  exports: [
+    BetsComponent
   ]
 })
 export class BetsModule { }

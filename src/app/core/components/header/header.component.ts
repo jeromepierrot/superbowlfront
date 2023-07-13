@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   onViewMatches(): void {
-    this.router.navigateByUrl("allmatches");
+    this.router.navigateByUrl("matches");
   }
 
   onViewBets(): void {

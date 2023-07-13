@@ -2,9 +2,9 @@
   <section [ngClass]="{'left-top-3': breakpoint === 3, 'left-top-4': breakpoint === 4}">
     <mat-action-list>
       <div mat-subheader class="item-title">All matches</div>
-      <button mat-list-item class="list-item" *ngFor="let matchItem of matchList$ | async">
-            <sb-single-match [matchItem]="matchItem"></sb-single-match>
-<!-- START Mock -->
+      <button mat-list-item class="list-item" *ngFor="let matchItem of matchList$ | async" (click)="onClicked(matchItem.id)">
+            <sb-single-match [matchItem]="matchItem" [breakpoint]="breakpoint"></sb-single-match>
+            <!-- START Mock -->
         <!-- <div matListItemTitle>{{ matchItem.status }}</div>
         <div matListItemLine>{{ matchItem.startDate | date }}</div>
         <hr class="solid">

@@ -70,6 +70,10 @@ export class AllmatchesComponent implements OnInit {
     this.destroyed.complete();
   }
 
+  onClicked(id: number): void {
+    this.router.navigateByUrl("matches/details/" + id);
+  }
+
   responsiveDisplay(currentScreenSize: string) {
     switch(currentScreenSize) {
       case 'XSmall':

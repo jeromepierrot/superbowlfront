@@ -41,7 +41,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     if(this.isLogged) {
       this.links = [
         { title:'Home', fragment: '' , icon: 'home'},
-        { title:'All matches', fragment: 'allmatches' , icon: 'sports_football'},
+        { title:'All matches', fragment: 'matches' , icon: 'sports_football'},
         { title:'Bets', fragment: 'bets' , icon: 'local_atm'},
         { title:'Profile', fragment: 'users' , icon: 'account_circle'},
         { title:'Logout', fragment: 'logout' , icon: 'power_settings_new'},
@@ -49,7 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     } else {
       this.links = [
         { title:'Home', fragment: '' , icon: 'home'},
-        { title:'All matches', fragment: 'allmatches' , icon: 'sports_football'},
+        { title:'All matches', fragment: 'matches' , icon: 'sports_football'},
         { title:'Bets', fragment: 'bets' , icon: 'local_atm'},
         { title:'Log-in/Sign-up', fragment: 'users' , icon: 'perm_identity'},
       ];

@@ -10,13 +10,10 @@ import { Match } from 'src/app/core/models/match';
 })
 export class SingleMatchComponent {
   @Input() matchItem!: Match | null;
+  @Input() breakpoint!: number;
 
   constructor(    
     private breakpointObserver: BreakpointObserver,
     private router: Router) {
     }
-
-  onClicked(): void {
-    this.router.navigateByUrl("details");
-  }
 }

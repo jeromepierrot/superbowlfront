@@ -2,7 +2,7 @@
   <section class="left-top">
     <mat-action-list>
       <div mat-subheader class="item-title">All matches</div>
-      <button mat-list-item class="list-item" *ngFor="let matchItem of matchListFiller">
+      <button mat-list-item class="list-item" *ngFor="let matchItem of matchList$ | async">
         <div matListItemTitle>{{ matchItem.status }}</div>
         <div matListItemLine>{{ matchItem.startDate | date }}</div>
         <div matListItemLine>{{ matchItem.teamA.name | uppercase }}</div>

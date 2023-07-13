@@ -19,7 +19,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
-  // Create a map to display breakpoint names for demonstration purposes.
+  // Create a map of breakpoint names.
   displayNameMap = new Map([
     [Breakpoints.XSmall, 'XSmall'],
     [Breakpoints.Small, 'Small'],

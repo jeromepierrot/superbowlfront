@@ -11,6 +11,7 @@ mat-sidenav-container {
 
 mat-sidenav {
   width: auto;
+  height: calc(100vh);
   border-right: none;
   margin-bottom: 20px;
   padding: 10px;
@@ -18,7 +19,7 @@ mat-sidenav {
 }
 
 mat-sidenav-content {
-  height: calc(100vh - 60px);
+  height: calc(100vh);
   margin: 0px;
   padding: 2rem;
   color: #05285a;

@@ -8,7 +8,12 @@
 
 section {
   color: #05285a;
+  background-color: rgb(255, 255, 255, 0.6);
   border-radius: 20px;
+}
+
+mat-card {
+  background-color: transparent;
 }
 
 aside {
@@ -34,19 +39,14 @@ aside {
   grid-column: 6 / 8; 
 }
 
-mat-action-list {
-  border-radius: 20px;
-  /* background-color: rgb(36, 90, 188, 0.6); */
-  background-color: rgb(255, 255, 255, 0.6);
-}
-
-.item-title {
+.list-title {
   color: #001945;
+  text-align: center;
+  padding: 10px;
 }
 
-matListItemLine {
+.list-item {
   color: #D9E2FF;
-  background-color: #05285a;
 }
 
 .solid {

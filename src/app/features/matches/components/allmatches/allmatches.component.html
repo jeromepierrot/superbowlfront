@@ -1,9 +1,10 @@
 <div class="wrapper">
-  <section [ngClass]="{'left-top-3': breakpoint === 3, 'left-top-4': breakpoint === 4}">
-    <mat-action-list>
+  <section [ngClass]="{'left-top-6': breakpoint === 6, 'left-top-8': breakpoint === 8}">
+    <mat-card>
       <div mat-subheader class="item-title">All matches</div>
-      <button mat-list-item class="list-item" *ngFor="let matchItem of matchList$ | async" (click)="onClicked(matchItem.id)">
-            <sb-single-match [matchItem]="matchItem" [breakpoint]="breakpoint"></sb-single-match>
+      <div mat-list-item class="list-item" *ngFor="let matchItem of matchList$ | async" (click)="onClicked(matchItem.id)">
+            <sb-match-item [matchItem]="matchItem" [breakpoint]="breakpoint"></sb-match-item>
+
             <!-- START Mock -->
         <!-- <div matListItemTitle>{{ matchItem.status }}</div>
         <div matListItemLine>{{ matchItem.startDate | date }}</div>
@@ -12,8 +13,8 @@
         <div matListItemLine>{{ matchItem.teamB.name | uppercase }}</div> -->
 <!-- END mock -->
 
-      </button>
-    </mat-action-list>
+        </div>
+    </mat-card>
   </section>
   <aside class="right-bottom">
     <!-- place on the right for betslip and/or floating buttons -->

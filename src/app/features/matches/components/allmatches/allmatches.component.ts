@@ -42,7 +42,7 @@ export class AllmatchesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breakpoint = 3;
+    this.breakpoint = 6;
     this.matchList$ = this.matchService.getMatches();
   }
 
@@ -78,13 +78,13 @@ export class AllmatchesComponent implements OnInit {
     switch(currentScreenSize) {
       case 'XSmall':
       case 'Small':
-        this.breakpoint = 4;
+        this.breakpoint = 8;
       break;
       case 'Medium': 
       case 'Large':
       case 'XLarge':
       default:
-        this.breakpoint = 3;
+        this.breakpoint = 6;
       break;
     }
   }

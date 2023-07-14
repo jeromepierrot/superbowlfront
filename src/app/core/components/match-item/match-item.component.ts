@@ -12,7 +12,7 @@ import { match } from '../../../config/match.mock';
   styleUrls: ['./match-item.component.css']
 })
 export class MatchItemComponent implements OnInit, AfterViewInit, OnDestroy {
-  public breakpoint!: number;
+  @Input() breakpoint!: number;
   public currentScreenSize!: string;
   private destroyed = new Subject<void>();
   @Input() matchItem!: Match | null; 
@@ -34,7 +34,7 @@ export class MatchItemComponent implements OnInit, AfterViewInit, OnDestroy {
     ) {  }
 
   ngOnInit(): void {
-    this.breakpoint = 8;
+    this.breakpoint = this.breakpoint * 2;
   }
 
   ngAfterViewInit(): void {
@@ -62,7 +62,7 @@ export class MatchItemComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onMatcardClicked(): void {
-    this.router.navigateByUrl("allmatches");
+    this.router.navigateByUrl("matches");
   }
 
   responsiveDisplay(currentScreenSize: string): void {

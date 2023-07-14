@@ -7,11 +7,12 @@
     </mat-list-item>
 </ng-container> -->
 
-<!-- VERSION API pour production/dev test -->
-<!-- <h2>{{ matches[0].startDate | date:'longDate' }}</h2> -->
-<!-- <mat-list-item *ngFor="let match of (matches$ | async) ; last as last">
-  <sb-match-item [match]="match" (click)="onMatcardClicked()"></sb-match-item>
-  <mat-divider [inset]="true" *ngIf="!last" role="separator"></mat-divider> 
-</mat-list-item> -->
+<div class="wrapper">
+  <section [ngClass]="{'left-top-3': breakpoint === 3, 'left-top-4': breakpoint === 4}">   
+    <sb-match-item *ngFor="let matchItem of matches$ | async as matchlist" [matchItem]="matchItem" [breakpoint]="breakpoint"></sb-match-item>
+  </section>
+  <aside class="right-bottom">
+    <!-- free space on the right for betslip and/or floating buttons -->
+  </aside>
+</div>
 
-<sb-match-item *ngFor="let matchItem of matches$ | async as matchlist" [matchItem]="matchItem"></sb-match-item>

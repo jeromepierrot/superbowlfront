@@ -15,13 +15,11 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatchesRoutingModule } from './matches-routing.module';
 import { AllmatchesComponent } from './components/allmatches/allmatches.component';
 import { MatchDetailsComponent } from './components/match-details/match-details.component';
-import { SingleMatchComponent } from './components/single-match/single-match.component';
 
 @NgModule({
   declarations: [
     AllmatchesComponent,
     MatchDetailsComponent,
-    SingleMatchComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +38,6 @@ import { SingleMatchComponent } from './components/single-match/single-match.com
   exports: [
     AllmatchesComponent,
     MatchDetailsComponent,
-    SingleMatchComponent,
   ]
 })
 export class MatchesModule { }

@@ -34,7 +34,7 @@ export class MatchItemComponent implements OnInit, AfterViewInit, OnDestroy {
     ) {  }
 
   ngOnInit(): void {
-    this.breakpoint = this.breakpoint * 2;
+    this.breakpoint = this.breakpoint;
   }
 
   ngAfterViewInit(): void {

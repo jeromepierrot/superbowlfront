@@ -9,26 +9,24 @@ mat-toolbar {
   right: 0;
   z-index: 10;
   background-color: #0051ab;   /* color-primary-40 */
-  color: #fff; /* color-on-primary-40 */
-  font-family: 'roboto', sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
+  color: #D9E2FF; /* color-on-primary-40 */
 }
 
 button {
   text-transform: uppercase;
   font-weight: 500;
+  font-size: small;
   padding: 20px;
   padding-inline: 40px;
   &:hover {
     text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
-    text-underline-offset: 8px;
-    color: #D9E2FF; /* color-on-primary-40 */
-    background-color: #05285a;
+    text-underline-offset: 24px;
+    color: #FFF; /* color-on-primary-40 */
+    background-color: transparent;
   }
   &:active {
-    text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
-    text-underline-offset: 8px;
+    text-decoration: underline #FFF 2px; /* color-primary-90 */
+    text-underline-offset: 24px;
   }
 }
 
@@ -53,11 +51,10 @@ button {
   }
 }
 
-/* .activebutton {
-  text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
-/*  text-underline-offset:8px;
-} */
-
+.activebutton {
+  text-decoration: underline #fff 2px;
+  text-underline-offset:24px;
+}
 
 .menu-spacer {
   flex: 1 2 auto;

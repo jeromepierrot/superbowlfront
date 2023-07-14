@@ -8,6 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table'; 
+import { MatSortModule } from '@angular/material/sort';
 
 import { MatchesRoutingModule } from './matches-routing.module';
 import { AllmatchesComponent } from './components/allmatches/allmatches.component';
@@ -30,6 +33,9 @@ import { SingleMatchComponent } from './components/single-match/single-match.com
     MatCardModule,
     MatGridListModule,
     MatProgressSpinnerModule,
+    MatTabsModule,
+    MatTableModule,
+    MatSortModule,
   ],
   exports: [
     AllmatchesComponent,

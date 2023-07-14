@@ -1,9 +1,7 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { MatList, MatListItem, MatListItemTitle } from '@angular/material/list';
 import { matchlist } from 'src/app/config/match-list.mock';
 import { Router } from "@angular/router";
 import { ApiMatchService } from 'src/app/core/services/api-match.service';
@@ -49,22 +47,7 @@ export class AllmatchesComponent implements OnInit {
   }
 
   ngAfterViewInit(): void {
-    this.breakpointObserver
-      .observe([
-        Breakpoints.XSmall,
-        Breakpoints.Small,
-        Breakpoints.Medium,
-        Breakpoints.Large,
-        Breakpoints.XLarge,
-      ]).pipe(takeUntil(this.destroyed))
-      .subscribe(result => {
-        for (const query of Object.keys(result.breakpoints)) {
-          if (result.breakpoints[query]) {
-            this.currentScreenSize = this.displayNameMap.get(query) ?? 'Unknown';
-          }
-          this.responsiveDisplay(this.currentScreenSize);
-        }
-      });
+    this.detectBreakpoint();
   }
 
   ngOnDestroy(): void {
@@ -73,7 +56,26 @@ export class AllmatchesComponent implements OnInit {
   }
 
   onClicked(id: number): void {
-    this.router.navigateByUrl("matches/details/" + id);
+    this.router.navigateByUrl(`matches/${id}`);
+  }
+
+  detectBreakpoint() {
+    this.breakpointObserver
+    .observe([
+      Breakpoints.XSmall,
+      Breakpoints.Small,
+      Breakpoints.Medium,
+      Breakpoints.Large,
+      Breakpoints.XLarge,
+    ]).pipe(takeUntil(this.destroyed))
+    .subscribe(result => {
+      for (const query of Object.keys(result.breakpoints)) {
+        if (result.breakpoints[query]) {
+          this.currentScreenSize = this.displayNameMap.get(query) ?? 'Unknown';
+        }
+        this.responsiveDisplay(this.currentScreenSize);
+      }
+    });
   }
 
   responsiveDisplay(currentScreenSize: string) {

@@ -1,0 +1,57 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 20px;
+}
+
+section {
+  color: #05285a;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 20px;
+}
+
+/* (for large and xlarge screens / Landscape) */
+.left-top-5 {
+  grid-row: 1;
+  grid-column: 3 / 6; 
+}
+
+/* (for medium screens / Landscape) */
+.left-top-6 {
+  grid-row: 1;
+  grid-column: 3 / 6; 
+}
+
+/* (for small screen / Portrait) */
+.left-top-7 {
+  grid-row: 1;
+  grid-column: 2 / 7; 
+}
+
+/* Full screen (for Xsmall screens / Portrait) */
+.left-top-8 {
+  grid-row: 1;
+  grid-column: 1 / 8; 
+}
+
+.title {
+  color: #001945;
+  font-size: large;
+  text-align: center;
+  padding: 10px;
+}
+
+.details {
+  color: #D9E2FF;
+}
+
+mat-tab-group {
+  margin-bottom: 20px;
+  background-color: rgb(255, 255, 255, 1);
+}
+
+table {
+  width: 100%;
+}

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Match } from '../models/match';
+import { Player } from '../models/player';
 import { environment } from '../../../environments/environment'
 
 @Injectable({
@@ -23,10 +24,23 @@ export class ApiMatchService {
 
   getMatchesForToday(): Observable<Match[]> {
     return this.http.get<Match[]>(this.matchesUrl + "/today");
- 
   }
 
   getMatchById(id: number) : Observable<Match> {
     return this.http.get<Match>(this.matchesUrl + "/" + id);
+  }
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiPlayerService {
+
+  playerUrl: string = environment.apiUrl + "players/team";
+
+  constructor(private http: HttpClient) { }
+
+  getPlayersByTeamId(teamId: number) : Observable<Player[]> {
+    return this.http.get<Player[]>(this.playerUrl + "?id=" + teamId);
   }
 }

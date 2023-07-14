@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { Subject } from 'rxjs';
@@ -18,7 +18,8 @@ export class AllmatchesComponent implements OnInit {
   @Input() isLogged = false;
  // matchList = Array.from({length: 100}, (_, i) => `Match Item ${i+1}`);
  // matchList = matchlist; // Mock
-  matchList$!: Observable<Match[]>; //
+  public matchList$!: Observable<Match[]>;
+  public wait!: boolean;
 
   // Responsive Design
   public breakpoint!: number;
@@ -38,12 +39,13 @@ export class AllmatchesComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private router: Router, 
     private matchService :ApiMatchService) {
-
   }
 
   ngOnInit(): void {
+    this.wait = true;
     this.breakpoint = 6;
     this.matchList$ = this.matchService.getMatches();
+    this.wait = false;
   }
 
   ngAfterViewInit(): void {

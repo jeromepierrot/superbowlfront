@@ -22,11 +22,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
-
-// Custom modules
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 // Custom components
-
 import { HomeModule } from './features/home/home.module';
 
 @NgModule({
@@ -57,6 +55,7 @@ import { HomeModule } from './features/home/home.module';
     MatCardModule,
     MatGridListModule,
     MatDividerModule,
+    MatProgressSpinnerModule,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+button {
+  background-color: transparent;
+  box-sizing: border-box;
+  padding: 10px 10px;
+  border: 1px solid #05285a;
+  margin-right: 20px;
+  outline: none;
+  font-size: 14px;
+  font-weight: 300;
+  &:hover {
+    text-decoration: underline #D9E2FF 2px; /* color-primary-90 */
+    text-underline-offset:8px;
+    color: #D9E2FF; /* color-on-primary-40 */
+    background-color: #004792;
+  }
+}

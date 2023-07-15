@@ -1,0 +1,17 @@
+.fab {
+  text-align: center;
+  vertical-align: center;
+  background-color: #128000;
+  &:hover {    
+    text-decoration: none;
+    background-color: #0d6200;
+  }
+}
+.fab-text{
+  color: #D9E2FF;
+  font-size: 50;  
+  text-transform: uppercase;
+  font-weight: 500;
+  padding-block: 30px;
+  padding-inline: 30px;
+}

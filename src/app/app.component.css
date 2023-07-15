@@ -1,0 +1,135 @@
+.test {
+  background-color: lightgreen;
+} 
+
+mat-sidenav-container {
+  position: relative;
+  height: calc(100vh);
+  color: #D9E2FF 2px; /* color-on-primary-10 */
+  background-color: transparent;
+}
+
+mat-sidenav {
+  width: auto;
+  height: calc(100vh);
+  border-right: none;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #05285a; /* color-primary-10 */
+}
+
+mat-sidenav-content {
+  height: calc(100vh);
+  margin: 0px;
+  padding: 2rem;
+  color: #05285a;
+}
+
+mat-divider {
+  height: 3px;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  justify-self: center;
+  background-color: hsla(226, 92%, 91%, 30%);
+}
+
+mat-toolbar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  
+  background-color: #05285a; /* color-primary-10 */
+}
+
+mat-toolbar-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.bottom-icons {
+  font-size: 1.625rem;
+  :hover {
+    background-color: underline #D9E2FF 2px;
+  }
+}
+
+button {
+  width:fit-content;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  color: #999;
+  font-size: 0.825rem;
+  font-weight: 400;
+  &:hover {
+    /* text-decoration: underline #0d6200 3px;
+    text-underline-offset: 8px; */
+    color: #D9E2FF; /* color-primary-90 */
+  }
+}
+
+.activebutton {
+  text-decoration: underline #D9E2FF 2px;
+  text-underline-offset: 8px;
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column;
+}
+
+.tac-button {
+  font-weight: 100;
+}
+
+* {
+  color: #F0F0F0; /* color-on-primary-10 */
+}
+
+.fab-container {
+  display: flex;
+  flex-direction: column;
+  flex: 3 1 auto;
+  position: fixed;
+  z-index: 12;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  flex: 3 2 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  bottom: 75px;
+  right: 2%;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  flex: 3 1 auto;
+  width: 25vw;
+  bottom: 20px;
+  right: 2%;
+}
+
+.aside-bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 3 1 auto;
+  width: 25vw;
+  bottom: 75px;
+  right: 2%;
+}
+
+.fab {
+  text-align: center;
+  text-justify: center;
+  font-size: large;
+  margin-top: 8px;
+}

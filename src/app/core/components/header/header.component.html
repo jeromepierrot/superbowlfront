@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <!-- Menu button appears when screensize is < medium -->
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+      <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+    <div *ngIf="sidenav.mode === 'over'; then portrait; else landscape"></div>
+  </mat-toolbar-row>
+
+  <!-- Template when screensize is > medium -->
+  <ng-template #landscape>
+    <button mat-button class="logo" (click)="onViewHome()"><span> {{title}}</span> Icon here</button>
+    <button mat-button class="matches" (click)="onViewMatches()" routerLinkActive="activebutton" [routerLinkActiveOptions]="{ exact: true }">All matches</button>
+    <button mat-button class="bets"(click)="onViewBets()" routerLinkActive="activebutton" [routerLinkActiveOptions]="{ exact: true }">Bets</button>
+    <span class="menu-spacer"></span>
+    <button mat-button *ngIf="!isLogged" class="signup" (click)="onViewSignup()">
+      Sign-up
+    </button>
+    <button mat-button *ngIf="!isLogged" class="login" (click)="onViewLogin()">
+      Log-in
+    </button>
+    <button mat-icon-button *ngIf="isLogged" (click)="onViewLogout()">
+      <mat-icon *ngIf="isLogged">power_settings_new</mat-icon>
+    </button>
+  </ng-template>
+
+    <!-- Template when screensize is < medium -->
+  <ng-template #portrait>
+    <span class="menu-spacer"></span>
+    <button mat-button class="logo" (click)="onViewHome()"><span> {{title}}</span> Icon here</button>
+    <span class="menu-spacer"></span>
+    <button mat-button *ngIf="!isLogged && !isPhone" class="signup" (click)="onViewSignup()">
+      Sign-up
+    </button>
+    <button mat-icon-button *ngIf="!isLogged" (click)="onViewLogin()">
+      <mat-icon *ngIf="!isLogged">account_circle</mat-icon>
+    </button>
+    <button mat-icon-button *ngIf="isLogged" (click)="onViewLogout()">
+      <mat-icon *ngIf="isLogged">power_settings_new</mat-icon>
+    </button>
+  </ng-template>

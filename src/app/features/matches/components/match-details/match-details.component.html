@@ -1,0 +1,107 @@
+<div class="wrapper">
+
+  <section [ngClass]="{'left-top-5': breakpoint === 5,
+                       'left-top-6': breakpoint === 6, 
+                       'left-top-7': breakpoint === 7,
+                       'left-top-8': breakpoint === 8}">
+    
+    <!-- Match details -->
+    <div class="title">Match details</div>
+    <div class="details">
+      <mat-list>
+        <mat-list-item class="wrapper-inline">
+          <ng-container *ngIf="match">
+            <div matListItemLine class="matchdate">{{ match.startDate | date: 'shortDate'  }}</div>
+            <div matListItemLine class="matchdate">Start time: {{ match.startDate | date: 'HH:mm' }}</div>
+            <div matListItemLine *ngIf="match.status === 'GAME_OVER'; then gameover else gameNotFinished" class="matchtime">End time : {{ match.endDate | date: 'HH:mm' }}</div>
+            <div matListItemLine class="teamname">{{ match.teamA.name | uppercase }}</div>
+            <div matListItemLine class="teamname">{{ match.teamB.name | uppercase }}</div>
+            
+            <div>
+              <div matListItemLine class="odds">{{ match.oddsA }}</div>
+              <div matListItemLine class="odds">{{ match.oddsB }}</div>
+            </div>
+            
+          </ng-container>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <ng-template #gameNotFinished>
+      <div matListItemLine class="matchtime">{{ match.status }}</div>
+    </ng-template>
+
+    <ng-template #gameover>
+      <div matListItemLine class="matchtime">End time : {{ match.endDate | date: 'HH:mm' }}</div>
+    </ng-template>
+
+
+
+    <mat-tab-group color="primary" backgroundColor="primary" animationDuration="0ms" preserveContent>
+      <!-- Teams details -->
+      <mat-tab label="Team A">
+        <div class="container">
+          <div class="table-container">
+            <!-- TEAM A -->
+            <ng-container *ngIf="match && teamAPlayers">
+              <table mat-table [dataSource]="teamAPlayers" class="mat-elevation-z8">
+                <!-- Team A's number column -->    
+                <ng-container matColumnDef="number">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let player">{{player.number}}</td>
+                </ng-container>
+        
+                <!-- Team A's Player fullname column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Players </th>
+                  <td mat-cell *matCellDef="let player">{{ player.firstname }} {{ player.lastname }}</td>
+                </ng-container>
+        
+                <tr mat-header-row *matHeaderRowDef="teamsColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: teamsColumns;"></tr>
+              </table>
+            </ng-container>
+          </div>
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Team B">
+        <div class="container">
+          <div class="table-container">
+            <!-- TEAM B -->
+            <ng-container *ngIf="match && teamBPlayers">
+              <table mat-table [dataSource]="teamBPlayers" class="mat-elevation-z8">
+                <!-- Team B's number column -->    
+                <ng-container matColumnDef="number">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let player">{{player.number}}</td>
+                </ng-container>
+
+                <!-- Team B's Player fullname column -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Players </th>
+                  <td mat-cell *matCellDef="let player">{{ player.firstname }} {{ player.lastname }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="teamsColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: teamsColumns;"></tr>
+              </table>
+            </ng-container>
+          </div>
+        </div>
+      </mat-tab>
+
+      <!-- Comments details -->
+      <mat-tab label="Comments" [disabled]="commentsDisabled">
+        <div>
+          <p>Comment's page is in construction</p>
+          <p>Please come back later to see any update</p>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+
+  </section>
+  <aside class="right-bottom">
+    <!-- place on the right for betslip and/or floating buttons -->
+  </aside>
+</div>

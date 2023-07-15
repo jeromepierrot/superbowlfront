@@ -1,0 +1,33 @@
+section {
+  height: 100vh;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+div.container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  height: 100vh;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+p, h2, h3 {
+  color: #555;
+}

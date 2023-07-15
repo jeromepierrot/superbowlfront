@@ -1,0 +1,51 @@
+<mat-card *ngIf="matchItem!= null && matchItem.status != 'GAME_NOT_SCHEDULED'" (click)="onMatcardClicked()">
+  <mat-card-header>
+    <div class="date" *ngIf="!amonstList">{{matchItem.startDate | date:'shortDate' }} </div>
+  </mat-card-header>
+    <mat-card-content *ngIf="breakpoint > 6; else small">
+      <mat-grid-list [cols]="breakpoint" rowHeight="5:2" gutterSize="1px" role="list">
+        <mat-grid-tile-header>{{matchItem.status}}</mat-grid-tile-header>
+        <mat-grid-tile class="teams hour" colspan="1" role="listitem">{{ matchItem.startDate | date:'shortTime' }} </mat-grid-tile>
+        <mat-grid-tile class="teams name" colspan="5" role="listitem">A - {{ matchItem.teamA.name | titlecase }} from {{ matchItem.teamA.country.name | titlecase }}</mat-grid-tile>
+        <mat-grid-tile class="scores title" colspan="1" *ngIf="matchItem.started || matchItem.over || matchItem.cancelled" role="listitem">Score A</mat-grid-tile>
+        <mat-grid-tile class="scores title" colspan="1" *ngIf="matchItem.scheduled || matchItem.notStarted" role="listitem">Odds A</mat-grid-tile>
+        <mat-grid-tile class="scores title" colspan="1" *ngIf="matchItem.started || matchItem.over || matchItem.cancelled" role="listitem">Score B</mat-grid-tile>
+        <mat-grid-tile class="scores title" colspan="1" *ngIf="matchItem.scheduled || matchItem.notStarted" role="listitem">Odds B</mat-grid-tile>
+  
+        <mat-grid-tile class="teams hour" colspan="1" role="listitem">{{ matchItem.endDate | date:'shortTime' }}</mat-grid-tile>
+        <mat-grid-tile class="teams name" colspan="5" role="listitem">B - {{ matchItem.teamB.name | titlecase }} from {{ matchItem.teamB.country.name | titlecase }}</mat-grid-tile>
+        <mat-grid-tile class="scores value" colspan="1" *ngIf="matchItem.started || matchItem.over" role="listitem">{{ matchItem.scoreA }}</mat-grid-tile>
+        <mat-grid-tile class="scores value" colspan="1" *ngIf="matchItem.cancelled" role="listitem"> - </mat-grid-tile>
+        <mat-grid-tile class="scores value" colspan="1" *ngIf="matchItem.scheduled || matchItem.notStarted" role="listitem">{{ matchItem.oddsA }}</mat-grid-tile>
+        <mat-grid-tile class="scores value" colspan="1" *ngIf="matchItem.started || matchItem.over" role="listitem">{{ matchItem.scoreB }}</mat-grid-tile>
+        <mat-grid-tile class="scores value" colspan="1" *ngIf="matchItem.cancelled" role="listitem"> - </mat-grid-tile>
+        <mat-grid-tile class="scores value" colspan="1" *ngIf="matchItem.scheduled || matchItem.notStarted" role="listitem">{{ matchItem.oddsB }}</mat-grid-tile>
+      </mat-grid-list>
+    </mat-card-content>
+
+    <ng-template #small>
+      <mat-card-content>
+        <mat-grid-list [cols]="breakpoint" rowHeight="5:2" gutterSize="2px" role="list">
+          <mat-grid-tile-header>{{matchItem.status}}</mat-grid-tile-header>
+          <mat-grid-tile class="teams hour" colspan="1" role="listitem">{{ matchItem.startDate | date:'shortTime' }} </mat-grid-tile>
+          <mat-grid-tile class="teams name" colspan="5" role="listitem">A - {{ matchItem.teamA.name | titlecase }} from {{ matchItem.teamA.country.name | titlecase }}</mat-grid-tile>
+          <mat-grid-tile class="teams hour" colspan="1" role="listitem">{{ matchItem.endDate | date:'shortTime' }}</mat-grid-tile>
+          <mat-grid-tile class="teams name" colspan="5" role="listitem">B - {{ matchItem.teamB.name | titlecase }} from {{ matchItem.teamB.country.name | titlecase }}</mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list [cols]="breakpoint" rowHeight="5:2" gutterSize="2px" role="list">
+          <mat-grid-tile class="scores title" colspan="3" *ngIf="matchItem.started || matchItem.over  || matchItem.cancelled" role="listitem">Score A</mat-grid-tile>
+          <mat-grid-tile class="scores title" colspan="3" *ngIf="matchItem.scheduled || matchItem.notStarted" role="listitem">Odds A</mat-grid-tile>
+          <mat-grid-tile class="scores title" colspan="3" *ngIf="matchItem.started || matchItem.over || matchItem.cancelled" role="listitem">Score B</mat-grid-tile>
+          <mat-grid-tile class="scores title" colspan="3" *ngIf="matchItem.scheduled || matchItem.notStarted" role="listitem">Odds B</mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list [cols]="breakpoint" rowHeight="5:4" gutterSize="2px" role="list">
+          <mat-grid-tile class="scores value" colspan="3" *ngIf="matchItem.started || matchItem.over" role="listitem">{{ matchItem.scoreA }}</mat-grid-tile>
+          <mat-grid-tile class="scores value" colspan="3" *ngIf="matchItem.cancelled" role="listitem"> - </mat-grid-tile>
+          <mat-grid-tile class="scores value" colspan="3" *ngIf="matchItem.scheduled || matchItem.notStarted" role="listitem">{{ matchItem.oddsA }}</mat-grid-tile>
+          <mat-grid-tile class="scores value" colspan="3" *ngIf="matchItem.started || matchItem.over" role="listitem">{{ matchItem.scoreB }}</mat-grid-tile>
+          <mat-grid-tile class="scores value" colspan="3" *ngIf="matchItem.cancelled" role="listitem"> - </mat-grid-tile>
+          <mat-grid-tile class="scores value" colspan="3" *ngIf="matchItem.scheduled || matchItem.notStarted" role="listitem">{{ matchItem.oddsB }}</mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </ng-template>
+</mat-card>

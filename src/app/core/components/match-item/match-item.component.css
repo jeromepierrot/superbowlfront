@@ -1,0 +1,53 @@
+mat-card {
+  border-radius: 6px;
+  color: #D9E2FF; /* color-on-primary-10 */
+  background-color: transparent;
+  /* background-color: #245abc;   color-primary-40 */
+  :hover{
+    cursor: pointer;
+  }
+}
+
+mat-card-header {
+  margin-bottom: 6px;
+}
+
+mat-grid-list {
+  margin: 6px;
+}
+
+mat-grid-tile-header {
+  color: #05285a;
+}
+
+mat-grid-tile.scores {
+  border: 1px solid #05285a;
+  border-radius: 6px;
+  background-color: #B0C6FF; /*color-primary-80*/
+  color: #001945; /*color-on-primary-80*/
+
+  box-shadow: inset 0px 0px 3px 3px rgba(0, 0, 0, 0.2);
+  
+}
+
+.hour {
+  font-weight: 500;
+  font-size: small;
+}
+
+.name {
+  font-weight: 100;
+  font-size: small;
+  text-align: start;
+}
+
+.value {
+  font-weight: 900;
+  font-size: 1.5em;
+}
+
+mat-grid-tile.teams {
+  text-align: start;
+  margin-right: 10px;
+  background-color: #05285a; /*color-primary-10*/
+}

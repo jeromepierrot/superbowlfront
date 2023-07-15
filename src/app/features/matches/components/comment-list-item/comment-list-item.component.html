@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="comment.commentator.lastname">
+      <span>Commenté par {{ comment.commentator.firstname }} {{ comment.commentator.lastname }}</span>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <span>{{ comment.postDate | date: "le dd-mm-YYYY à HH:MM:ss" }}</span>
+    </mat-card-subtitle>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <span class="content">{{ comment.postContent }}</span>
+  </mat-card-content>
+</mat-card>

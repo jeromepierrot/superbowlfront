@@ -12,27 +12,36 @@
         <mat-list-item class="wrapper-inline">
           <ng-container *ngIf="match">
             <div matListItemLine class="matchdate">{{ match.startDate | date: 'shortDate'  }}</div>
-            <div matListItemLine class="matchdate">Start time: {{ match.startDate | date: 'HH:mm' }}</div>
+            <div matListItemLine class="matchdate"><span><mat-icon>timer</mat-icon></span> Start time: {{ match.startDate | date: 'HH:mm' }}</div>
             <div matListItemLine *ngIf="match.status === 'GAME_OVER'; then gameover else gameNotFinished" class="matchtime">End time : {{ match.endDate | date: 'HH:mm' }}</div>
+            <div matListItemLine class="weather"><span><mat-icon>cloud_queue</mat-icon></span> {{ match.weather | uppercase }}</div>
             <div matListItemLine class="teamname">{{ match.teamA.name | uppercase }}</div>
             <div matListItemLine class="teamname">{{ match.teamB.name | uppercase }}</div>
             
             <div>
+              <div matListItemLine class="odds label">Odds</div>
               <div matListItemLine class="odds">{{ match.oddsA }}</div>
+              <div matListItemLine class="odds label">Odds</div>
               <div matListItemLine class="odds">{{ match.oddsB }}</div>
             </div>
-            
+
+            <div>
+              <div matListItemLine class="score label">Score</div>
+              <div matListItemLine class="score content">{{ match.scoreA }}</div>
+              <div matListItemLine class="score label">Score</div>
+              <div matListItemLine class="score">{{ match.scoreB }}</div>
+            </div>
           </ng-container>
         </mat-list-item>
       </mat-list>
     </div>
 
     <ng-template #gameNotFinished>
-      <div matListItemLine class="matchtime">{{ match.status }}</div>
+      <div matListItemLine class="matchtime"><span><mat-icon>timer_off</mat-icon></span> {{ match.status }}</div>
     </ng-template>
 
     <ng-template #gameover>
-      <div matListItemLine class="matchtime">End time : {{ match.endDate | date: 'HH:mm' }}</div>
+      <div matListItemLine class="matchtime"><span><mat-icon>update</mat-icon></span> End time : {{ match.endDate | date: 'HH:mm' }}</div>
     </ng-template>
 
 
@@ -94,8 +103,7 @@
       <!-- Comments details -->
       <mat-tab label="Comments" [disabled]="commentsDisabled">
         <div>
-          <p>Comment's page is in construction</p>
-          <p>Please come back later to see any update</p>
+          <sb-comment-list [matchId]="matchId"></sb-comment-list>
         </div>
       </mat-tab>
     </mat-tab-group>

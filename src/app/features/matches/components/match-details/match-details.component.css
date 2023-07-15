@@ -9,7 +9,7 @@
 section {
   color: #05285a;
   background-color: rgb(255, 255, 255, 0.8);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 /* (for large and xlarge screens / Landscape) */
@@ -37,7 +37,7 @@ section {
 }
 
 .title {
-  color: #001945;
+  color: #05285a;
   font-size: large;
   text-align: center;
   padding: 10px;
@@ -49,9 +49,12 @@ section {
 
 mat-tab-group {
   margin-bottom: 20px;
-  background-color: rgb(255, 255, 255, 1);
 }
 
 table {
   width: 100%;
+}
+
+mat-icon { 
+  margin-bottom: -6px;
 }

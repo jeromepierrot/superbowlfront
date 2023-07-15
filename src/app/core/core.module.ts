@@ -3,12 +3,7 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import * as fr from '@angular/common/locales/fr';
 import { RouterModule } from '@angular/router';
-
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
+import { SharedModule } from '../shared/shared.module';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -16,6 +11,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { CtaFabComponent } from './components/cta-fab/cta-fab.component';
 import { MatchListComponent } from './components/match-list/match-list.component';
 import { MatchItemComponent } from './components/match-item/match-item.component';
+
 
 @NgModule({
   declarations: [
@@ -29,11 +25,7 @@ import { MatchItemComponent } from './components/match-item/match-item.component
   imports: [
     CommonModule,
     RouterModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatGridListModule,
+    SharedModule,
     HttpClientModule,
   ],
   exports: [

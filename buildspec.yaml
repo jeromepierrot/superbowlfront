@@ -13,7 +13,8 @@ phases:
       nodejs: 18
       runtime: version
     commands:
-      - npm install -g @angular/cli@16.0.6
+      - npm install --global yarn
+      - yarn global add @angular/cli
   
   pre_build:
     on-failure: ABORT
@@ -27,7 +28,12 @@ phases:
         run: echo "S3 bucket is $S3_BUCKET"
     commands:
       - echo Build startd on `date`
-      - cd dist/studi-superbowl
+      - ng build --configuration=production
+  
+  post_build:
+    commands:
+      - echo "build process finished"
+      - cd dist/superbowl-frontend
       - ls -la
       - aws s3 sync . s3://studi-superbowl --delete
 
@@ -35,4 +41,4 @@ artifacts:
   files:
     - '**/*'
   discard-paths: yes
-  base-directory: 'dist/studi-superbowl'
+  base-directory: 'dist/superbowl-frontend'

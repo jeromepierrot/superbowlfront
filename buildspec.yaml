@@ -33,7 +33,7 @@ phases:
   post_build:
     commands:
       - echo "build process finished"
-      - cd dist/studi-superbowl
+      - cd dist/superbowl-frontend
       - ls -la
       - aws s3 sync . s3://studi-superbowl --delete
 
@@ -41,4 +41,4 @@ artifacts:
   files:
     - '**/*'
   discard-paths: yes
-  base-directory: 'dist/studi-superbowl'
+  base-directory: 'dist/superbowl-frontend'

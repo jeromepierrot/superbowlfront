@@ -11,7 +11,6 @@ phases:
     on-failure: ABORT
     runtime-versions:
       nodejs: 18
-      runtime: version
     commands:
       - npm install --global yarn
       - yarn global add @angular/cli

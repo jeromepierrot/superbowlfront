@@ -18,8 +18,8 @@ phases:
   
   pre_build:
     on-failure: ABORT
-  commands:
-    - yarn install
+    commands:
+      - yarn install
   
   build :
     on-failure: ABORT

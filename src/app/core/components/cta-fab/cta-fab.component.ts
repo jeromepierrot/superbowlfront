@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sb-cta-fab',
@@ -10,7 +10,7 @@ export class CtaFabComponent implements OnInit {
   @Input() text!: string;
   private position!: FabPosition;
   
-  constructor() {
+  constructor(private router: Router) {
 
   }
 

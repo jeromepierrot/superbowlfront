@@ -23,9 +23,6 @@ phases:
   
   build :
     on-failure: ABORT
-    steps:
-      - if: ${{ env.S3_BUCKET == 'studi-superbowl' }}
-        run: echo "S3 bucket is $S3_BUCKET"
     commands:
       - echo Build startd on `date`
       - ng build --configuration=production

@@ -15,7 +15,8 @@ export class MatchItemComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() breakpoint!: number;
   public currentScreenSize!: string;
   private destroyed = new Subject<void>();
-  @Input() matchItem!: Match | null; 
+  @Input() matchItem!: Match | null;
+  @Input() isLogged!:boolean;
   public amonstList: boolean= true;
 
   public matchItemMock!: any; // mock

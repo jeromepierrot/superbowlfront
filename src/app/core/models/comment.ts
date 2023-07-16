@@ -1,8 +1,9 @@
+import { Commentator } from "src/app/core/models/commentator";
+
 export class Comment {
   public id!: number;
-  public match_id!: number;
-  public commentator_id!: number;
-  public content!: string;
-  public postDate!: Date;
-  public editDate!: Date;
+  public commentator!: Commentator;
+  public postContent!: string;
+  public postDate!: string;
+  public editDate!: string;
 }

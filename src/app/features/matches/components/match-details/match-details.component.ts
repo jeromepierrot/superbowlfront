@@ -1,10 +1,10 @@
-import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy, Input } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
-import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiMatchService, ApiPlayerService } from 'src/app/core/services/api-match.service';
+import { CommentsService } from '../../services/comments.service';
 import { Match } from 'src/app/core/models/match';
 import { match } from 'src/app/config/match.mock';
 import { ActivatedRoute } from '@angular/router';
@@ -23,8 +23,15 @@ export class MatchDetailsComponent implements OnInit, OnDestroy {
   public teamBPlayers!: Player[];
   public commentsDisabled!: boolean;
   public match$!: Observable<Match>;
-  private comments!: Comment[];
+  private comments$!: Comment[];
   private destroyed = new Subject<void>();
+
+  public oddsStyle = [
+    {'green' : { 'background-color': 'lightgreen', 'color': '#006b00' }},
+    {'red' : { 'background-color': 'lightpink', 'color': '#920031'}}
+  ];
+
+  @Input() isLogged!: boolean;
 
   // Responsive Design
   public breakpoint!: number;
@@ -39,19 +46,21 @@ export class MatchDetailsComponent implements OnInit, OnDestroy {
   ]);
 
   teamsColumns: string[] = ['number', 'name'];
-  @ViewChild(MatSort) sort!: MatSort;
+
+  public matchId!: number;
 
   constructor(private route: ActivatedRoute, 
               private matchService: ApiMatchService,
               private playerService: ApiPlayerService,
+              private commentsService: CommentsService,
               private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.breakpoint = 6;
     const teams: Player[][] = [this.teamAPlayers,this.teamBPlayers];
-    const matchId = +this.route.snapshot.params['id'];
-    this.commentsDisabled = true;
-    this.matchService.getMatchById(matchId)
+    this.matchId = +this.route.snapshot.params['id'];
+    this.commentsDisabled = false;
+    this.matchService.getMatchById(this.matchId)
       .pipe(takeUntil(this.destroyed))
       .subscribe(
         (matchData) => {

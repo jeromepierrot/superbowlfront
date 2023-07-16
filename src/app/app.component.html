@@ -21,9 +21,9 @@
       <router-outlet></router-outlet>
       <div [ngClass]="{'fab-container bottom' : fabPosition === 'bottom',
                        'fab-container aside-bottom' : fabPosition === 'aside-bottom',
-                       'fab-container aside' : fabPosition === 'aside' }" >
-        <sb-cta-fab class="fab" *ngIf="!isLogged" text="Join or Log in"></sb-cta-fab>
-        <sb-cta-fab class="fab" text="Place a bet now"></sb-cta-fab>
+                       'fab-container aside' : fabPosition === 'aside' }">
+        <sb-cta-fab class="fab" *ngIf="!isLogged" text="Join or Log in" routerLink="login"></sb-cta-fab>
+        <sb-cta-fab class="fab" text="Place a bet now" routerLink="bets"></sb-cta-fab>
       </div>
     <sb-footer></sb-footer>
   </mat-sidenav-content>

@@ -6,33 +6,73 @@
                        'left-top-8': breakpoint === 8}">
     
     <!-- Match details -->
-    <div class="title">Match details</div>
-    <div class="details">
-      <mat-list>
-        <mat-list-item class="wrapper-inline">
-          <ng-container *ngIf="match">
-            <div matListItemLine class="matchdate">{{ match.startDate | date: 'shortDate'  }}</div>
-            <div matListItemLine class="matchdate">Start time: {{ match.startDate | date: 'HH:mm' }}</div>
-            <div matListItemLine *ngIf="match.status === 'GAME_OVER'; then gameover else gameNotFinished" class="matchtime">End time : {{ match.endDate | date: 'HH:mm' }}</div>
-            <div matListItemLine class="teamname">{{ match.teamA.name | uppercase }}</div>
-            <div matListItemLine class="teamname">{{ match.teamB.name | uppercase }}</div>
-            
-            <div>
-              <div matListItemLine class="odds">{{ match.oddsA }}</div>
-              <div matListItemLine class="odds">{{ match.oddsB }}</div>
-            </div>
-            
-          </ng-container>
-        </mat-list-item>
-      </mat-list>
-    </div>
+    <h2 class="title">Match details</h2>
+    <ng-container *ngIf="match">
+      <div class="details">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-subtitle>
+                <div class="col1">
+                  <div class="match-datetime">{{ match.startDate | date: 'shortDate'  }}</div>
+                  <div class="match-datetime"><span><mat-icon>timer</mat-icon></span> Start time: {{ match.startDate | date: 'HH:mm' }}</div>
+                  <div *ngIf="match.status === 'GAME_OVER'; then gameover else gameNotFinished" class="match-datetime">End time : {{ match.endDate | date: 'HH:mm' }}</div>
+                </div>
+                <div class="col2">
+                  <p>Weather</p>
+                  <div class="weather"><span><mat-icon>cloud_queue</mat-icon></span> {{ match.weather | uppercase }}</div> 
+                </div>
+              </mat-card-subtitle> 
+              <mat-card-title>
+                <div class="teamname">
+                  <p>{{ match.teamA.name | titlecase }}</p>
+                  <p>({{ match.teamA.country.name | uppercase }})</p>
+                </div>
+                <div class="teamname">
+                  <p>{{ match.teamB.name | titlecase }}</p>
+                  <p>({{ match.teamB.country.name | uppercase }})</p>
+                </div>                                 
+              </mat-card-title>        
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content>
+              <div class="odds-row">
+                <div class="odds-col" [ngStyle]=" match.oddsA > match.oddsB ? { 'background-color': 'lightgreen', 'color': '#006b00' } : { 'background-color': 'lightpink', 'color': '#920031'} ">
+                  <div class="label">Odds</div>
+                  <div class="odds value">{{ match.oddsA || '-' }}</div>
+                </div>
+                <div class="odds-col" [ngStyle]=" match.oddsA < match.oddsB ? { 'background-color': 'lightgreen', 'color': '#006b00' } : { 'background-color': 'lightpink', 'color': '#920031'} ">
+                  <div class="label">Odds</div>
+                  <div class="odds value">{{ match.oddsB || '-' }}</div>
+                </div>
+              </div>
+
+              <div class="score-row">
+                <div class="score-col">
+                  <div class="label">Score</div>
+                  <div class="score value">{{ match.scoreA || '-' }}</div>
+                </div>
+                <div class="score-col">
+                  <div class="label">Score</div>
+                  <div class="score value">{{ match.scoreB || '-'  }}</div>
+                </div>
+              </div>
+          </mat-card-content>
+          <mat-card-footer>
+            <sb-cta-fab class="fab" *ngIf="!isLogged" text="Join or Log in" routerLink="/login"></sb-cta-fab>
+            <sb-cta-fab class="fab" *ngIf="match.notStarted" text="Place a bet now" routerLink="/bets"></sb-cta-fab>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </ng-container>
+
 
     <ng-template #gameNotFinished>
-      <div matListItemLine class="matchtime">{{ match.status }}</div>
+      <div class="match-datetime"><span><mat-icon>timer_off</mat-icon></span> {{ match.status }}</div>
     </ng-template>
 
     <ng-template #gameover>
-      <div matListItemLine class="matchtime">End time : {{ match.endDate | date: 'HH:mm' }}</div>
+      <div class="match-datetime"><span><mat-icon>update</mat-icon></span> End time : {{ match.endDate | date: 'HH:mm' }}</div>
     </ng-template>
 
 
@@ -94,8 +134,7 @@
       <!-- Comments details -->
       <mat-tab label="Comments" [disabled]="commentsDisabled">
         <div>
-          <p>Comment's page is in construction</p>
-          <p>Please come back later to see any update</p>
+          <sb-comment-list [matchId]="matchId"></sb-comment-list>
         </div>
       </mat-tab>
     </mat-tab-group>

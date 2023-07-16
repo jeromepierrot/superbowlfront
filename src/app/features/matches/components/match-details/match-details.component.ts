@@ -1,8 +1,7 @@
-import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy, Input } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
-import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ApiMatchService, ApiPlayerService } from 'src/app/core/services/api-match.service';
 import { CommentsService } from '../../services/comments.service';
@@ -27,6 +26,13 @@ export class MatchDetailsComponent implements OnInit, OnDestroy {
   private comments$!: Comment[];
   private destroyed = new Subject<void>();
 
+  public oddsStyle = [
+    {'green' : { 'background-color': 'lightgreen', 'color': '#006b00' }},
+    {'red' : { 'background-color': 'lightpink', 'color': '#920031'}}
+  ];
+
+  @Input() isLogged!: boolean;
+
   // Responsive Design
   public breakpoint!: number;
   public currentScreenSize!: string;
@@ -40,7 +46,6 @@ export class MatchDetailsComponent implements OnInit, OnDestroy {
   ]);
 
   teamsColumns: string[] = ['number', 'name'];
-  @ViewChild(MatSort) sort!: MatSort;
 
   public matchId!: number;
 

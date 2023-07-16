@@ -5,7 +5,7 @@
     <div class="list-title">All matches</div>
     <ng-container *ngIf="!wait else spinner">
       <div class="list-item" *ngFor="let matchItem of matchList$ | async as matchList" (click)="onClicked(matchItem.id)">
-        <sb-match-item [matchItem]="matchItem" [breakpoint]="breakpoint"></sb-match-item>
+        <sb-match-item [matchItem]="matchItem" [breakpoint]="breakpoint" [isLogged]="isLogged"></sb-match-item>
       </div>
     </ng-container>
     <ng-template #spinner>

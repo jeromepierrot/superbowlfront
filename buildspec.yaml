@@ -13,7 +13,7 @@ phases:
       nodejs: 18
       runtime: version
     commands:
-      - yarn install -g @angular/cli@16.0.6
+      - npm install -g @angular/cli@16.0.6
   
   pre_build:
     on-failure: ABORT

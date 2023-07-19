@@ -6,6 +6,7 @@ import { matchlist } from 'src/app/config/match-list.mock';
 import { Router } from "@angular/router";
 import { ApiMatchService } from 'src/app/core/services/api-match.service';
 import { Match } from 'src/app/core/models/match';
+import { FabPosition } from 'src/app/core/components/cta-fab/cta-fab.component';
 
 @Component({
   selector: 'sb-allmatches',
@@ -18,7 +19,11 @@ export class AllmatchesComponent implements OnInit {
  // matchList = matchlist; // Mock
   public matchList$!: Observable<Match[]>;
   public wait!: boolean;
-
+  
+  // global variables
+  // isLogged: boolean = false;
+  fabPosition!: FabPosition;
+  
   // Responsive Design
   public breakpoint!: number;
   public currentScreenSize!: string;
@@ -82,12 +87,17 @@ export class AllmatchesComponent implements OnInit {
     switch(currentScreenSize) {
       case 'XSmall':
       case 'Small':
+        this.fabPosition = 'bottom';
         this.breakpoint = 8;
       break;
-      case 'Medium': 
+      case 'Medium':
+        this.fabPosition = 'aside-bottom';
+        this.breakpoint = 6;
+      break; 
       case 'Large':
       case 'XLarge':
       default:
+        this.fabPosition = 'aside';
         this.breakpoint = 6;
       break;
     }

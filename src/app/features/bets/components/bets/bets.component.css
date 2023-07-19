@@ -1,5 +1,29 @@
-.test {
-  /* background-color: lightcyan; */
+h2 {
+  text-align: center;
+  padding: 10px;
+}
+
+p {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.grid-column-wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 20px;
+}
+
+article {
+  color: #05285a;
+  background-color: rgb(255, 255, 255, 1);
+  border-radius: 8px;
+}
+
+.list {
+  min-height: 60vh;
 }
 
 mat-drawer-container {
@@ -26,4 +50,87 @@ mat-drawer-content {
   align-items: center;
   align-content: center;
   margin: 10px;
+}
+
+/* For grid placement */
+aside {
+  position: absolute;
+  bottom: 80px;
+  right: 8px;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+}
+
+/* (for xlarge screens / Landscape) */
+.left-top-5 {
+  grid-row: 1;
+  grid-column: 2 / 6; 
+}
+
+/* (for medium and large screens / Landscape) */
+.left-top-6 {
+  grid-row: 1;
+  grid-column: 1 / 6; 
+}
+
+/* Full screen (for Small, Xsmall screens / Portrait) */
+.left-top-8 {
+  grid-row: 1;
+  grid-column: 1 / 8; 
+}
+
+.right-bottom {
+  grid-row: 1;
+  grid-column: 6 / 8; 
+}
+
+/* For CTA FAB buttons */
+/* also, need aside css attribute alongside to work with */
+.fab-container {
+  display: flex;
+  flex-direction: column;
+  flex: 3 1 auto;
+  position: fixed;
+  z-index: 12;
+}
+
+.fab {
+  text-align: center;
+  text-justify: center;
+  align-items: center;
+  font-size: large;
+  margin-top: 8px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  flex: 3 2 auto;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  bottom: 75px;
+  right: 2%;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  flex: 3 1 auto;
+  width: 25vw;
+  bottom: 80px;
+  right: 2%;
+}
+
+.aside-bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 3 1 auto;
+  width: 25vw;
+  bottom: 75px;
+  right: 2%;
+}
+
+.test {
+  /* background-color: lightcyan; */
 }

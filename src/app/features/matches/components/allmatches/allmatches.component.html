@@ -1,11 +1,16 @@
-<div class="wrapper">
-  <section [ngClass]="{'left-top-6': breakpoint === 6, 'left-top-8': breakpoint === 8}">
-    <div class="list-title">All matches</div>
-    <ng-container *ngIf="!wait else spinner">
-      <div class="list-item" *ngFor="let matchItem of matchList$ | async as matchList" (click)="onClicked(matchItem.id)">
-        <sb-match-item [matchItem]="matchItem" [breakpoint]="breakpoint" [isLogged]="isLogged"></sb-match-item>
-      </div>
-    </ng-container>
+<div class="grid-column-wrapper">
+  <section [ngClass]="{
+    'left-top-5': breakpoint === 5,
+    'left-top-6': breakpoint === 6,
+    'left-top-8': breakpoint === 8}">
+    <article class="list">
+      <h2>All matches</h2>
+      <ng-container *ngIf="!wait else spinner">
+        <div class="list-item" *ngFor="let matchItem of matchList$ | async as matchList" (click)="onMatcardClicked(matchItem.id)">
+          <sb-match-item [matchItem]="matchItem" [breakpoint]="breakpoint" [isLogged]="isLogged"></sb-match-item>
+        </div>
+      </ng-container>
+    </article>
     <ng-template #spinner>
       <div class="overlay">
         <mat-spinner color="primary"></mat-spinner>    

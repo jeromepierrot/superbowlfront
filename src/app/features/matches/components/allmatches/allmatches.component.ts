@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, AfterViewInit, OnDestroy, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Router } from "@angular/router";
 import { Observable, Subject } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
+import { FabPosition } from 'src/app/core/components/cta-fab/cta-fab.component';
 import { matchlist } from 'src/app/config/match-list.mock';
-import { Router } from "@angular/router";
 import { ApiMatchService } from 'src/app/core/services/api-match.service';
 import { Match } from 'src/app/core/models/match';
-import { FabPosition } from 'src/app/core/components/cta-fab/cta-fab.component';
 
 @Component({
   selector: 'sb-allmatches',
@@ -49,7 +49,7 @@ export class AllmatchesComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.wait = true;
     this.breakpoint = 6;
-    this.matchList$ = this.matchService.getMatches();
+    this.matchList$ = this.matchService.getMatches(); // all matches
     this.wait = false;
   }
 
@@ -60,10 +60,6 @@ export class AllmatchesComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroyed.next();
     this.destroyed.complete();
-  }
-
-  onClicked(id: number): void {
-    this.router.navigateByUrl(`matches/${id}`);
   }
 
   detectBreakpoint() {
@@ -97,11 +93,18 @@ export class AllmatchesComponent implements OnInit, AfterViewInit, OnDestroy {
         this.breakpoint = 6;
       break; 
       case 'Large':
-      case 'XLarge':
-      default:
         this.fabPosition = 'aside';
         this.breakpoint = 6;
       break;
+      case 'XLarge':
+      default:
+        this.fabPosition = 'aside';
+        this.breakpoint = 5;
+      break;
     }
+  }
+
+  onMatcardClicked(id: number): void {
+    this.router.navigateByUrl(`matches/${id}`);
   }
 }

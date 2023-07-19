@@ -1,12 +1,5 @@
-<ng-container *ngFor="let matchItem of matches$ | async as matchlist" >
-  <ng-container *ngIf="matchlist !== null; else noMatchList">
-      <sb-match-item [matchItem]="matchItem" [breakpoint]="breakpoint"></sb-match-item>
-  </ng-container>
+<ng-container>
+  <div class="list-item" *ngFor="let matchItem of matches$ | async as matchlist">
+      <sb-match-item [matchItem]="matchItem" [breakpoint]="breakpoint" (click)="onMatcardClicked()"></sb-match-item>
+  </div>
 </ng-container>
-
-<ng-template #noMatchList>
-  <!-- TODO: does not work, to be fixed -->
-    <p>Sorry, no match planned for today, come back tomorrow</p>
-</ng-template>
-
-

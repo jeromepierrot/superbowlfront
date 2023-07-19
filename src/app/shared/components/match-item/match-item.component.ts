@@ -5,6 +5,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { match } from 'src/app/config/match.mock';
+import { BooleanInput } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'sb-match-item',
@@ -17,6 +18,8 @@ export class MatchItemComponent implements OnInit, AfterViewInit, OnDestroy {
   private destroyed = new Subject<void>();
   @Input() matchItem!: Match | null;
   @Input() isLogged!:boolean;
+  @Input() displayCheckbox!:boolean;
+  @Input() checkboxChecked!:BooleanInput;
   public amonstList: boolean= true;
 
   public matchItemMock!: any; // mock
@@ -63,7 +66,7 @@ export class MatchItemComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onMatcardClicked(): void {
-    this.router.navigateByUrl("matches");
+    this.checkboxChecked = !this.checkboxChecked;
   }
 
   responsiveDisplay(currentScreenSize: string): void {

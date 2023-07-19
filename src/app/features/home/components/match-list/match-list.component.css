@@ -6,9 +6,3 @@ p {
 .list-item:hover{
   cursor: pointer;
 }
-
-sb-match-item {
-  margin: 6px;
-  padding: 10px;
-    background-color: rgb(255, 255, 255);
-}

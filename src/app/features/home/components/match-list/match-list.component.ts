@@ -23,6 +23,6 @@ export class MatchListComponent implements OnInit {
   }
 
   onMatcardClicked() {
-    this.router.navigateByUrl("matches");
+    this.router.navigateByUrl("/matches");
   }
 }

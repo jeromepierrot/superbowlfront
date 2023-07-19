@@ -8,6 +8,10 @@ mat-card {
   }
 }
 
+mat-cars-content {
+  margin: 6px;
+}
+
 mat-card-header {
   margin-bottom: 6px;
 }
@@ -35,6 +39,10 @@ mat-grid-tile.scores {
   font-size: small;
 }
 
+.hour.smaller {
+  font-weight: 300;
+}
+
 .name {
   font-weight: 100;
   font-size: small;
@@ -46,8 +54,12 @@ mat-grid-tile.scores {
   font-size: 1.5em;
 }
 
+.smaller {
+  font-size: smaller;
+}
+
 mat-grid-tile.teams {
-  text-align: start;
+  text-align: center;
   margin-right: 10px;
   background-color: #05285a; /*color-primary-10*/
 }

@@ -1,0 +1,11 @@
+
+<mat-card>
+  <mat-card-header>
+    <h4>Betslip</h4>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-container *ngFor="let betItem of betList">
+      <sb-betslip-item class="betslip" *ngIf="betItem.status == 'BET_OPENED' && !isEmpty" [betItem]="betItem"></sb-betslip-item>
+    </ng-container>
+    </mat-card-content>
+</mat-card>

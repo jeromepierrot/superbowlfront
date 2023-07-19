@@ -1,12 +1,14 @@
-import { Component, Input, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
 import { FabPosition } from 'src/app/core/components/cta-fab/cta-fab.component';
 
 import { Bet } from 'src/app/core/models/bet';
-import { MatList, MatListItem } from '@angular/material/list';
+import { Match } from 'src/app/core/models/match';
+import { ApiMatchService } from 'src/app/core/services/api-match.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { matchlist } from 'src/app/config/match-list.mock';
 
 @Component({
@@ -15,6 +17,11 @@ import { matchlist } from 'src/app/config/match-list.mock';
   styleUrls: ['./bets.component.css']
 })
 export class BetsComponent implements OnInit, AfterViewInit, OnDestroy {
+  matchList$!: Observable<Match[]>;
+  matchItemId!:number;
+  checked!:boolean;
+  selectedMatchList:number[] = [];
+
   // global variables
   @Input() isLogged = false;
   fabPosition!: FabPosition;
@@ -25,6 +32,8 @@ export class BetsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // Mock variables
   matchListFiller = matchlist;
+
+  // Mock variables
   betList: Bet[] = [
     {
       id:1,
@@ -75,11 +84,15 @@ export class BetsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private router: Router) {}
+    private router: Router,
+    private matchService: ApiMatchService,
+    private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.breakpoint = 6;
+    this.checked = false;
     this.isOpened = !this.isBetslipEmpty();
+    this.matchList$ = this.matchService.getMatchesForToday();
   }
 
   ngAfterViewInit(): void {
@@ -141,5 +154,49 @@ export class BetsComponent implements OnInit, AfterViewInit, OnDestroy {
       } 
     });
     return empty;
+  }
+
+  onItemClicked(matchItemId: number) {
+    let message = "No bet placed yet";
+    let durationInMs = 5 * 1000; // 5 seconds
+    if(this.selectedMatchList.includes(matchItemId)) {
+      this.selectedMatchList.forEach( (id, index) => {
+        if(id === matchItemId) {
+          this.selectedMatchList.splice(index, 1)
+        }
+      });
+      
+      switch (this.selectedMatchList.length){
+        case 0: 
+          message = "Removing the last bet from your betslip, betslip is empty now";
+          break;
+        case 1: 
+          message = "Only one bet (" + matchItemId + ") placed in your betslip yet, total : " + this.selectedMatchList.length + " bet";
+          break;
+        default:
+          message = "Removing bet " + matchItemId + " from your betslip, total : " + this.selectedMatchList.length + " bets";
+          break;
+        
+      }
+      this._snackBar.open(message, ' OK ', {
+        duration: durationInMs,
+      });
+    } else {
+      this.selectedMatchList.push(matchItemId);
+      switch (this.selectedMatchList.length){
+        case 0: 
+          message = "No bets inside your betslip, strange ???";
+          break;
+        case 1: 
+          message = "New bet (" + matchItemId + ") placed inside your betslip, total : " + this.selectedMatchList.length + " bet";
+          break;
+        default:
+          message =  "New bet (" + matchItemId + ") added to your betslip , total : " + this.selectedMatchList.length + " bet(s)";
+          break;
+      }
+      this._snackBar.open(message, ' OK ', {
+        duration: durationInMs,
+      });
+    }
   }
 }

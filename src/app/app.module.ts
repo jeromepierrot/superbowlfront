@@ -15,10 +15,12 @@ import { BetsModule } from './features/bets/bets.module';
 
 // Custom components
 import { HomeModule } from './features/home/home.module';
+import { SignupComponent } from './features/login/components/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

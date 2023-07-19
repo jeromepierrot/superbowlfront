@@ -1,4 +1,4 @@
-.wrapper {
+.grid-column-wrapper {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 10px;
@@ -6,11 +6,14 @@
   margin-bottom: 20px;
 }
 
-section {
-  /* background-color: transparent; */
+article {
   color: #05285a;
-  background-color: rgb(255, 255, 255, 0.6);
+  background-color: rgb(255, 255, 255, 1);
   border-radius: 8px;
+}
+
+.list {
+  min-height: 60vh;
 }
 
 aside {

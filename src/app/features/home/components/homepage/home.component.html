@@ -1,25 +1,31 @@
-<section>
-  <article>
-    <h2>Fans of Superbowl, this place is yours</h2>
-    <p>Don't miss any match and result about Superbowl Football game.</p>
-    <p>Here is the place to monitor all Superbowl's matches and place your bets on your favorite teams.</p>  
-  </article>
-</section>
-<div class="wrapper">
+<div class="grid-column-wrapper">
   <section [ngClass]="{'left-top-6': breakpoint === 6, 'left-top-8': breakpoint === 8}">
-    <article>
-      <h2>Matches of the day</h2>
-      <sb-match-list></sb-match-list>
+      <article>
+      <h2>Fans of Superbowl, this place is yours</h2>
+      <p>Don't miss any match and result about Superbowl Football game.</p>
+      <p>Here is the place to monitor all Superbowl's matches and place your bets on your favorite teams.</p>  
     </article>
+    <aside class="right-bottom">
+      <!-- place on the right for betslip and/or floating buttons -->
+    </aside>
   </section>
-  <aside class="right-bottom">
-    <!-- place on the right for betslip and/or floating buttons -->
-    <div [ngClass]="{'fab-container bottom' : fabPosition === 'bottom',
-                'fab-container aside-bottom' : fabPosition === 'aside-bottom',
-                'fab-container aside' : fabPosition === 'aside',
-                'fab-container hide' : fabPosition === 'hide' }">
-    <sb-cta-fab class="fab" *ngIf="!isLogged" text="Join or Log in" routerLink="login"></sb-cta-fab>
-    <sb-cta-fab class="fab" text="Place a bet now" routerLink="bets"></sb-cta-fab>
-  </div>
-  </aside>
 </div>
+  <div class="grid-column-wrapper">
+    <section [ngClass]="{'left-top-6': breakpoint === 6, 'left-top-8': breakpoint === 8}">
+      <article class="list">
+        <h2>Matches of the day</h2>
+        <sb-match-list [breakpoint]="breakpoint"></sb-match-list>
+      </article>
+    </section>
+    <aside class="right-bottom">
+      <!-- place on the right for betslip and/or floating buttons -->
+      <div [ngClass]="{'fab-container bottom' : fabPosition === 'bottom',
+                  'fab-container aside-bottom' : fabPosition === 'aside-bottom',
+                  'fab-container aside' : fabPosition === 'aside',
+                  'fab-container hide' : fabPosition === 'hide' }">
+        <sb-cta-fab class="fab" *ngIf="!isLogged" text="Join or Log in" routerLink="login"></sb-cta-fab>
+        <sb-cta-fab class="fab" text="Place a bet now" routerLink="bets"></sb-cta-fab>
+      </div>
+    </aside>
+  </div>
+

@@ -9,13 +9,13 @@
 section {
   color: #05285a;
   background-color: rgb(255, 255, 255, 0.6);
-  border-radius: 20px;
+  border-radius: 8px;
 }
 
 aside {
   position: absolute;
   bottom: 80px;
-  right: 20px;
+  right: 8px;
   display: flex;
   flex-flow: column-reverse nowrap;
 }

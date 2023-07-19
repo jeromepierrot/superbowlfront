@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, OnDestroy, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
@@ -13,16 +13,18 @@ import { FabPosition } from 'src/app/core/components/cta-fab/cta-fab.component';
   templateUrl: './allmatches.component.html',
   styleUrls: ['./allmatches.component.css']
 })
-export class AllmatchesComponent implements OnInit {
-  @Input() isLogged = false;
- // matchList = Array.from({length: 100}, (_, i) => `Match Item ${i+1}`);
- // matchList = matchlist; // Mock
-  public matchList$!: Observable<Match[]>;
-  public wait!: boolean;
-  
+export class AllmatchesComponent implements OnInit, AfterViewInit, OnDestroy {
   // global variables
-  // isLogged: boolean = false;
+  @Input() isLogged = false;
   fabPosition!: FabPosition;
+  public wait!: boolean;
+ 
+  // Mock variables
+  // matchList = Array.from({length: 100}, (_, i) => `Match Item ${i+1}`);
+  // matchList = matchlist; // Mock
+
+  // Actual 'Observable' variable from DBMS
+  public matchList$!: Observable<Match[]>;
   
   // Responsive Design
   public breakpoint!: number;

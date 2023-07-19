@@ -19,9 +19,7 @@ export class MatchListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.matches$ = this.matchService.getMatchesByDate('2023-06-28');
     this.matches$ = this.matchService.getMatchesForToday(); // matches of the day
-   // this.matches$ = this.matchService.getMatches(); // all matches
   }
 
   onMatcardClicked() {

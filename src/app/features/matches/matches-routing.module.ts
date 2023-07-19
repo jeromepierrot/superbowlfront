@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { AllmatchesComponent } from './components/allmatches/allmatches.component';
 import { MatchDetailsComponent } from './components/match-details/match-details.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { LoginComponent } from '../login/components/login/login.component';
 
 const routes: Routes = [
   { path: '', component: AllmatchesComponent },
   { path: ':id', component: MatchDetailsComponent },
-  { path: 'details/:id', component: MatchDetailsComponent }
+  { path: 'details/:id', component: MatchDetailsComponent },
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

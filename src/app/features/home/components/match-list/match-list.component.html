@@ -1,21 +1,12 @@
-<!-- VERSION AVEC MOCK pour test sans backend -->
-<!-- <ng-container *ngIf="matches !=null">
-  <h2>{{ matches[10].startDate | date:'longDate' }}</h2>
-    <mat-list-item *ngFor="let matchItem of matches; last as last">
-      <sb-match-item *ngIf="matchItem != null" [matchItem]="matchItem" (click)="onMatcardClicked()"></sb-match-item>
-      <mat-divider [inset]="true" *ngIf="!last && matchItem != null" role="separator"></mat-divider>
-    </mat-list-item>
-</ng-container> -->
-<ng-container *ngIf="matches$ === null; else noMatch">
-  <section [ngClass]="{'left-top-6': breakpoint === 6, 'left-top-8': breakpoint === 8}">   
-    <sb-match-item *ngFor="let matchItem of matches$ | async as matchlist" [matchItem]="matchItem" [breakpoint]="breakpoint"></sb-match-item>
-  </section>
+<ng-container *ngFor="let matchItem of matches$ | async as matchlist" >
+  <ng-container *ngIf="matchlist !== null; else noMatchList">
+      <sb-match-item [matchItem]="matchItem" [breakpoint]="breakpoint"></sb-match-item>
+  </ng-container>
 </ng-container>
 
-<ng-template #noMatch>
-  <section [ngClass]="{'left-top-6': breakpoint === 6, 'left-top-8': breakpoint === 8}">   
+<ng-template #noMatchList>
+  <!-- TODO: does not work, to be fixed -->
     <p>Sorry, no match planned for today, come back tomorrow</p>
-  </section>
 </ng-template>
 
 

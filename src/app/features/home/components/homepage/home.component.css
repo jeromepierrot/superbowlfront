@@ -1,3 +1,8 @@
+p {
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
 .grid-column-wrapper {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -16,6 +21,7 @@ article {
   min-height: 60vh;
 }
 
+/* For grid placement */
 aside {
   position: absolute;
   bottom: 80px;
@@ -24,11 +30,19 @@ aside {
   flex-flow: column-reverse nowrap;
 }
 
+/* (for xlarge screens / Landscape) */
+.left-top-5 {
+  grid-row: 1;
+  grid-column: 2 / 6; 
+}
+
+/* (for medium and large screens / Landscape) */
 .left-top-6 {
   grid-row: 1;
   grid-column: 1 / 6; 
 }
 
+/* Full screen (for Small, Xsmall screens / Portrait) */
 .left-top-8 {
   grid-row: 1;
   grid-column: 1 / 8; 
@@ -39,10 +53,6 @@ aside {
   grid-column: 6 / 8; 
 }
 
-article {
-  margin-bottom: 20px;
-  padding: 20px;
-}
 h2 {
   text-align: center;
 }

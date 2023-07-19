@@ -1,8 +1,11 @@
 import { Component, Input, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
 import { FabPosition } from 'src/app/core/components/cta-fab/cta-fab.component';
+import { ApiMatchService } from 'src/app/core/services/api-match.service';
+import { Match } from 'src/app/core/models/match';
 
 @Component({
   selector: 'sb-home',
@@ -10,6 +13,7 @@ import { FabPosition } from 'src/app/core/components/cta-fab/cta-fab.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  matches$!: Observable<Match[]>;
 
   // global variables
   @Input() isLogged = false;
@@ -28,10 +32,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     [Breakpoints.XLarge, 'XLarge'],
   ]);
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private router: Router,
+    private matchService: ApiMatchService) {}
 
   ngOnInit(): void {
     this.breakpoint = 6;
+    this.matches$ = this.matchService.getMatchesForToday(); // matches of the day
   }
 
   ngAfterViewInit(): void {
@@ -74,11 +82,18 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         this.breakpoint = 6;
       break; 
       case 'Large':
-      case 'XLarge':
-      default:
         this.fabPosition = 'aside';
         this.breakpoint = 6;
       break;
+      case 'XLarge':
+      default:
+        this.fabPosition = 'aside';
+        this.breakpoint = 5;
+      break;
     }
+  }
+
+  onMatcardClicked() {
+    this.router.navigateByUrl("matches");
   }
 }

@@ -9,7 +9,7 @@ import { HomeComponent } from './components/homepage/home.component';
 @NgModule({
   declarations: [
     HomeComponent,
-    MatchListComponent
+    MatchListComponent,
   ],
   imports: [
     CommonModule,

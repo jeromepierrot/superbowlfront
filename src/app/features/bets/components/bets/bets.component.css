@@ -8,6 +8,10 @@ p {
   padding: 10px;
 }
 
+.list-item:hover{
+  cursor: pointer;
+}
+
 .grid-column-wrapper {
   display: grid;
   grid-template-columns: repeat(7, 1fr);

@@ -3,11 +3,12 @@ p {
   padding: 10px;
 }
 
+.list-item:hover{
+  cursor: pointer;
+}
+
 sb-match-item {
   margin: 6px;
   padding: 10px;
-    background-color: rgb(255, 255, 255, 0.6);
-  :hover{
-    cursor: pointer;
-  }
+    background-color: rgb(255, 255, 255);
 }

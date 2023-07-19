@@ -1,10 +1,10 @@
 import { Component, Input, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { Match } from '../../models/match';
+import { Match } from 'src/app/core/models/match';
 import { Router } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { match } from '../../../config/match.mock';
+import { match } from 'src/app/config/match.mock';
 
 @Component({
   selector: 'sb-match-item',

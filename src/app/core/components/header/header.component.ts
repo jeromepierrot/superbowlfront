@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @Input() sidenav!: MatSidenav;
   @Input() isLogged!: boolean;
 
-  title = 'Superbowl';
+  title = 'Bet on Superbowl';
   isLandscape!: boolean;
   isPhone!: boolean;
 

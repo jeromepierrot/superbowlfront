@@ -1,0 +1,61 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(4, auto);
+  margin-bottom: 20px;
+}
+
+section {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  height: 100vh;
+  color: #000;
+  background-color: rgb(255, 255, 255, 1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  grid-row: 1;
+  grid-column: 2 / 6;
+}
+
+p, h2, h3 {
+  color: #999;
+  text-align: center;
+  justify-self: center;
+}
+
+/* For grid placement */
+aside {
+  position: absolute;
+  bottom: 80px;
+  right: 8px;
+  display: flex;
+  flex-flow: column-reverse nowrap;
+}
+
+/* (for xlarge screens / Landscape) */
+.left-top-5 {
+  grid-row: 1;
+  grid-column: 2 / 6; 
+}
+
+/* (for medium and large screens / Landscape) */
+.left-top-6 {
+  grid-row: 1;
+  grid-column: 2 / 7; 
+}
+
+/* Full screen (for Small, Xsmall screens / Portrait) */
+.left-top-8 {
+  grid-row: 1;
+  grid-column: 1 / 8; 
+}
+
+.right-bottom {
+  grid-row: 1;
+  grid-column: 6 / 8; 
+}
+
+

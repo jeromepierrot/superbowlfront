@@ -9,9 +9,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CtaFabComponent } from './components/cta-fab/cta-fab.component';
-import { MatchListComponent } from './components/match-list/match-list.component';
-import { MatchItemComponent } from './components/match-item/match-item.component';
-
 
 @NgModule({
   declarations: [
@@ -19,8 +16,6 @@ import { MatchItemComponent } from './components/match-item/match-item.component
     FooterComponent,
     PageNotFoundComponent,
     CtaFabComponent,
-    MatchListComponent,
-    MatchItemComponent,
   ],
   imports: [
     CommonModule,
@@ -32,9 +27,7 @@ import { MatchItemComponent } from './components/match-item/match-item.component
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    CtaFabComponent,
-    MatchListComponent,
-    MatchItemComponent,
+    CtaFabComponent
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'fr-FR'}

@@ -1,30 +1,39 @@
-<div class="dummy"></div>
-<mat-drawer-container>
-  <mat-drawer mode="side" [(opened)]="isOpened" position="end">
-    <h2>Betslip</h2>
-    <ng-container *ngFor="let betItem of betList">
-      <ng-container *ngIf="betItem.status == 'BET_OPENED' && !isEmpty">
-        <ul class="test">
-          <li>id: {{ betItem.id }}</li>
-          <li>Team A : {{ betItem.match_id }}</li>
-          <li>Team B : {{ betItem.team_id }}</li>
-          <li>Odds : {{ betItem.final_odds }}</li>
-          <li>Wager : {{ betItem.wager_euros }}</li>
-        </ul>
+<div class="grid-column-wrapper">
+
+  <section [ngClass]="{
+    'left-top-5': breakpoint === 5,
+    'left-top-6': breakpoint === 6, 
+    'left-top-8': breakpoint === 8}">
+    <article class="list">
+      <h2>All bets</h2>
+      <ng-container>
+        <div class="list-item" *ngFor="let matchItem of matchList$ | async as matchList" (click)="onItemClicked(matchItem.id)">
+          <sb-match-item [matchItem]="matchItem" [breakpoint]="breakpoint" [isLogged]="isLogged" [displayCheckbox]="true" [checkboxChecked]="checked"></sb-match-item>          
+        </div>
       </ng-container>
-    </ng-container>
-  </mat-drawer>
-  <mat-drawer-content class="test">
-      <mat-selection-list>
-        <div mat-subheader class="item-title">All matches</div>
-        <mat-list-option class="list-item" *ngFor="let matchItem of matchListFiller">
-          <div matListItemTitle>{{ matchItem.status }}</div>
-          <div matListItemLine>{{ matchItem.startDate | date}}</div>
-          <div matListItemLine>{{ matchItem.teamA.name | uppercase }} VS {{ matchItem.teamB.name | uppercase }}</div>
-        </mat-list-option>
-        <mat-divider></mat-divider>
-      </mat-selection-list>
-  </mat-drawer-content>
-</mat-drawer-container>
+    </article>
+  </section>
+  <aside class="right-bottom">
+    <div class="betslip-container">
+    
+      <!-- space on the right/bottom of viewport for betslip and/or floating buttons -->
+      <sb-betslip [betList]="betList"></sb-betslip>
+      <div [ngClass]="{'fab-container bottom' : fabPosition === 'bottom',
+                'fab-container aside-bottom' : fabPosition === 'aside-bottom',
+                'fab-container aside' : fabPosition === 'aside',
+                'fab-container hide' : fabPosition === 'hide' }">
+
+
+        <sb-cta-fab class="fab" *ngIf="!isLogged" text="Join or Log in" routerLink="/login"></sb-cta-fab>
+        <sb-cta-fab class="fab" text="Place a bet now" routerLink="/bets"></sb-cta-fab>
+      </div>
+    </div>
+  </aside>
+
+  <div class="grid-column-wrapper">
+    
+  </div>
+</div>
+
 
 

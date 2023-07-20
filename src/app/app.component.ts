@@ -3,8 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Router } from "@angular/router";
-import { MatSidenav } from '@angular/material/sidenav'; 
-import { FabPosition } from './core/components/cta-fab/cta-fab.component';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'sb-root',
@@ -15,7 +14,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   destroyed = new Subject<void>();
   currentScreenSize!: string;
   isLogged: boolean = false;
-  fabPosition!: FabPosition;
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
@@ -84,19 +82,16 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     switch(currentScreenSize) {
       case 'XSmall':
       case 'Small':
-        this.fabPosition = 'bottom';
         this.sidenav.mode = 'over';
         this.sidenav.close();
       break;
       case 'Medium':
-        this.fabPosition = 'aside-bottom';
         this.sidenav.mode = 'over';
         this.sidenav.close();
       break;
       case 'Large':
       case 'XLarge':
       default:
-        this.fabPosition = 'aside';
         this.sidenav.mode = 'side';
         this.sidenav.open();
       break;

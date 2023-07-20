@@ -27,4 +27,4 @@ export class CtaFabComponent implements OnInit {
   }
 }
 
-export declare type FabPosition = 'aside' | 'aside-bottom' | 'bottom';
+export declare type FabPosition = 'aside' | 'aside-bottom' | 'bottom' | 'hide';

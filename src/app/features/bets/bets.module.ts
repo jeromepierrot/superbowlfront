@@ -14,8 +14,6 @@ import { BetsComponent } from './components/bets/bets.component';
     CommonModule,
     CoreModule,
     SharedModule,
-    
-    // custom modules
     BetsRoutingModule,
   ],
   exports: [

@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   onViewSignup(): void {
-    this.router.navigateByUrl("login");
+    this.router.navigateByUrl("signup");
   }
 
   onViewLogin(): void {

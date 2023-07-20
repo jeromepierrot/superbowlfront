@@ -11,7 +11,7 @@
         </div>
         <mat-divider></mat-divider>
         <div class="tac-button">
-          <button mat-button routerLink="'terms'" [fragment]="'terms'" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
+          <button mat-button routerLink="tac" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
             <mat-icon>info</mat-icon>
             <span>Terms and conditions</span>
           </button>
@@ -19,12 +19,6 @@
   </mat-sidenav>
   <mat-sidenav-content class="mat-elevation-z4">
       <router-outlet></router-outlet>
-      <div [ngClass]="{'fab-container bottom' : fabPosition === 'bottom',
-                       'fab-container aside-bottom' : fabPosition === 'aside-bottom',
-                       'fab-container aside' : fabPosition === 'aside' }">
-        <sb-cta-fab class="fab" *ngIf="!isLogged" text="Join or Log in" routerLink="login"></sb-cta-fab>
-        <sb-cta-fab class="fab" text="Place a bet now" routerLink="bets"></sb-cta-fab>
-      </div>
     <sb-footer></sb-footer>
   </mat-sidenav-content>
 </mat-sidenav-container>

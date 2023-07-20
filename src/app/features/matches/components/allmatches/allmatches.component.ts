@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, OnDestroy, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Router } from "@angular/router";
 import { Observable, Subject } from 'rxjs';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { takeUntil } from 'rxjs/operators';
+import { FabPosition } from 'src/app/core/components/cta-fab/cta-fab.component';
 import { matchlist } from 'src/app/config/match-list.mock';
-import { Router } from "@angular/router";
 import { ApiMatchService } from 'src/app/core/services/api-match.service';
 import { Match } from 'src/app/core/models/match';
 
@@ -12,13 +13,19 @@ import { Match } from 'src/app/core/models/match';
   templateUrl: './allmatches.component.html',
   styleUrls: ['./allmatches.component.css']
 })
-export class AllmatchesComponent implements OnInit {
+export class AllmatchesComponent implements OnInit, AfterViewInit, OnDestroy {
+  // global variables
   @Input() isLogged = false;
- // matchList = Array.from({length: 100}, (_, i) => `Match Item ${i+1}`);
- // matchList = matchlist; // Mock
-  public matchList$!: Observable<Match[]>;
+  fabPosition!: FabPosition;
   public wait!: boolean;
+ 
+  // Mock variables
+  // matchList = Array.from({length: 100}, (_, i) => `Match Item ${i+1}`);
+  // matchList = matchlist; // Mock
 
+  // Actual 'Observable' variable from DBMS
+  public matchList$!: Observable<Match[]>;
+  
   // Responsive Design
   public breakpoint!: number;
   public currentScreenSize!: string;
@@ -42,7 +49,7 @@ export class AllmatchesComponent implements OnInit {
   ngOnInit(): void {
     this.wait = true;
     this.breakpoint = 6;
-    this.matchList$ = this.matchService.getMatches();
+    this.matchList$ = this.matchService.getMatches(); // all matches
     this.wait = false;
   }
 
@@ -53,10 +60,6 @@ export class AllmatchesComponent implements OnInit {
   ngOnDestroy(): void {
     this.destroyed.next();
     this.destroyed.complete();
-  }
-
-  onClicked(id: number): void {
-    this.router.navigateByUrl(`matches/${id}`);
   }
 
   detectBreakpoint() {
@@ -82,14 +85,26 @@ export class AllmatchesComponent implements OnInit {
     switch(currentScreenSize) {
       case 'XSmall':
       case 'Small':
+        this.fabPosition = 'bottom';
         this.breakpoint = 8;
       break;
-      case 'Medium': 
+      case 'Medium':
+        this.fabPosition = 'aside-bottom';
+        this.breakpoint = 6;
+      break; 
       case 'Large':
-      case 'XLarge':
-      default:
+        this.fabPosition = 'aside';
         this.breakpoint = 6;
       break;
+      case 'XLarge':
+      default:
+        this.fabPosition = 'aside';
+        this.breakpoint = 5;
+      break;
     }
+  }
+
+  onMatcardClicked(id: number): void {
+    this.router.navigateByUrl(`matches/${id}`);
   }
 }

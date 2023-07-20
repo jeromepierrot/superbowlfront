@@ -1,4 +1,4 @@
 export const environment = {
   production : true,
-  apiUrl : 'http://localhost:8080/api/'
+  apiUrl : 'https://studi-superbowl-backend-ndlrl72fuq-ew.a.run.app/api/'
 };
